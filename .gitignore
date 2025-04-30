@@ -1,0 +1,52 @@
+# -------------------------------------------------
+# Archivos y carpetas de Visual Studio (IDE)
+# -------------------------------------------------
+.vs/                          # Configuración de VS (solución, workspace)
+*.suo                         # Opciones de usuario de la solución
+*.user                        # Ajustes personales de proyecto
+*.userosscache                # Caché de IntelliSense
+*.sln.docstates               # Estados de documentos en la solución
+*.vssscc                      # Fuente de control de VS
+*.vspscc                      # Fuente de control de VS
+
+# -------------------------------------------------
+# Resultados de compilación de .NET (si los hubiera)
+# -------------------------------------------------
+[Bb]in/
+[Oo]bj/
+
+# -------------------------------------------------
+# Paquetes NuGet
+# -------------------------------------------------
+packages/                     # Carpeta de paquetes de NuGet
+*.nupkg                       # Paquetes NuGet
+
+# -------------------------------------------------
+# SSDT / SQL Server Database Project
+# -------------------------------------------------
+*.dbmdl                       # Modelo compilado de la base de datos
+*.publish.xml                 # Perfiles de publicación (Publish Profiles)
+
+# -------------------------------------------------
+# Archivos de SSMS / scripting SQL
+# -------------------------------------------------
+*.sqlcmdvars                  # Variables SQLCMD (entorno local)
+*.log                         # Logs de ejecución de scripts
+~$*                           # Archivos temporales de Office/editores
+
+# -------------------------------------------------
+# Integration Services (SSIS)
+# -------------------------------------------------
+*.dtproj.user                 # Ajustes de usuario de proyecto SSIS
+*.ispac                       # Paquete de despliegue de SSIS
+DeploymentManifest.xml        # Manifiesto de despliegue de SSIS
+
+# -------------------------------------------------
+# Archivos temporales y de sistema operativo
+# -------------------------------------------------
+*.tmp
+*.temp
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
