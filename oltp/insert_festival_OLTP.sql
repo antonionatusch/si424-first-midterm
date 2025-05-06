@@ -41,6 +41,7 @@ BEGIN TRY
     DELETE FROM Genero_Cinematografico;
     DELETE FROM Rol_Cinematografico;
     DELETE FROM Persona;
+    DELETE FROM Gasto_Festival;
     */
     
     -- 1. Insert data into independent tables first
@@ -125,16 +126,16 @@ BEGIN TRY
     
     -- Inserting Asistente data
     PRINT 'Inserting Asistente data...';
-    INSERT INTO Asistente (nombre, apellidos, email, telefono, tipo_asistente)
+    INSERT INTO Asistente (nombre, apellidos, email, telefono, tipo_asistente, pais, ciudad)
     VALUES 
-        ('Carlos', 'Gómez', 'carlos@example.com', '+34611223344', 'publico'),
-        ('Ana', 'Martínez', 'ana@example.com', '+34622334455', 'prensa'),
-        ('Miguel', 'Fernández', 'miguel@example.com', '+34633445566', 'industria'),
-        ('Laura', 'Sánchez', 'laura@example.com', '+34644556677', 'VIP'),
-        ('Roberto', 'Díaz', 'roberto@example.com', '+34655667788', 'publico'),
-        ('Elena', 'Pérez', 'elena@example.com', '+34666778899', 'prensa'),
-        ('Javier', 'López', 'javier@example.com', '+34677889900', 'industria'),
-        ('Carmen', 'Ruiz', 'carmen@example.com', '+34688990011', 'VIP');
+        ('Carlos', 'Gómez', 'carlos@example.com', '+34611223344', 'publico', 'España', 'Madrid'),
+        ('Ana', 'Martínez', 'ana@example.com', '+34622334455', 'prensa', 'España', 'Barcelona'),
+        ('Miguel', 'Fernández', 'miguel@example.com', '+34633445566', 'industria', 'México', 'Ciudad de México'),
+        ('Laura', 'Sánchez', 'laura@example.com', '+34644556677', 'VIP', 'Argentina', 'Buenos Aires'),
+        ('Roberto', 'Díaz', 'roberto@example.com', '+34655667788', 'publico', 'España', 'Valencia'),
+        ('Elena', 'Pérez', 'elena@example.com', '+34666778899', 'prensa', 'Colombia', 'Bogotá'),
+        ('Javier', 'López', 'javier@example.com', '+34677889900', 'industria', 'Chile', 'Santiago'),
+        ('Carmen', 'Ruiz', 'carmen@example.com', '+34688990011', 'VIP', 'España', 'Sevilla');
     
     -- Inserting Tipo_Entrada data
     PRINT 'Inserting Tipo_Entrada data...';
@@ -158,13 +159,13 @@ BEGIN TRY
     
     -- Inserting Patrocinador data
     PRINT 'Inserting Patrocinador data...';
-    INSERT INTO Patrocinador (nombre, contacto_principal, telefono, email, tipo)
+    INSERT INTO Patrocinador (nombre, contacto_principal, telefono, email, tipo, pais, sector_industria)
     VALUES 
-        ('CineMax Studios', 'Antonio Hernández', '+34911223344', 'antonio@cinemax.com', 'Productora'),
-        ('BankFilm', 'María Torres', '+34922334455', 'maria@bankfilm.com', 'Financiero'),
-        ('TechVision', 'Pablo Martín', '+34933445566', 'pablo@techvision.com', 'Tecnológico'),
-        ('UniCultura', 'Carmen Jiménez', '+34944556677', 'carmen@unicultura.edu', 'Institución Cultural'),
-        ('GlobalMedia', 'David Ruiz', '+34955667788', 'david@globalmedia.com', 'Medio Comunicación');
+        ('CineMax Studios', 'Antonio Hernández', '+34911223344', 'antonio@cinemax.com', 'Productora', 'España', 'Entretenimiento'),
+        ('BankFilm', 'María Torres', '+34922334455', 'maria@bankfilm.com', 'Financiero', 'Estados Unidos', 'Bancario'),
+        ('TechVision', 'Pablo Martín', '+34933445566', 'pablo@techvision.com', 'Tecnológico', 'Alemania', 'Tecnología'),
+        ('UniCultura', 'Carmen Jiménez', '+34944556677', 'carmen@unicultura.edu', 'Institución Cultural', 'España', 'Educación'),
+        ('GlobalMedia', 'David Ruiz', '+34955667788', 'david@globalmedia.com', 'Medio Comunicación', 'Reino Unido', 'Medios');
     
     -- Inserting Alojamiento data
     PRINT 'Inserting Alojamiento data...';
@@ -432,28 +433,28 @@ BEGIN TRY
     
     -- Inserting Entrada data
     PRINT 'Inserting Entrada data...';
-    INSERT INTO Entrada (proyeccion_id, tipo_entrada_id, precio_final, fecha_venta, asistente_id, abono_id, usado)
+    INSERT INTO Entrada (proyeccion_id, tipo_entrada_id, precio_final, fecha_venta, asistente_id, abono_id, usado, metodo_pago)
     VALUES 
-        (1, 1, 10.00, '2023-09-15 10:30:00', 1, 1, 1),
-        (3, 1, 10.00, '2023-09-16 11:45:00', 1, 1, 1),
-        (6, 1, 10.00, '2023-09-17 09:20:00', 1, 1, 0),
-        (9, 1, 10.00, '2023-09-18 14:15:00', 1, 1, 0),
+        (1, 1, 10.00, '2023-09-15 10:30:00', 1, 1, 1, 'Tarjeta de crédito'),
+        (3, 1, 10.00, '2023-09-16 11:45:00', 1, 1, 1, 'Tarjeta de crédito'),
+        (6, 1, 10.00, '2023-09-17 09:20:00', 1, 1, 0, 'Tarjeta de crédito'),
+        (9, 1, 10.00, '2023-09-18 14:15:00', 1, 1, 0, 'Tarjeta de crédito'),
         
-        (1, 4, 25.00, '2023-09-20 16:30:00', 4, 2, 1),
-        (3, 4, 25.00, '2023-09-21 12:10:00', 4, 2, 1),
-        (5, 4, 25.00, '2023-09-22 10:45:00', 4, 2, 0),
+        (1, 4, 25.00, '2023-09-20 16:30:00', 4, 2, 1, 'Transferencia bancaria'),
+        (3, 4, 25.00, '2023-09-21 12:10:00', 4, 2, 1, 'Transferencia bancaria'),
+        (5, 4, 25.00, '2023-09-22 10:45:00', 4, 2, 0, 'Transferencia bancaria'),
         
-        (2, 2, 7.50, '2023-09-25 17:00:00', 2, 3, 1),
-        (3, 2, 7.50, '2023-09-26 11:30:00', 2, 3, 0),
+        (2, 2, 7.50, '2023-09-25 17:00:00', 2, 3, 1, 'PayPal'),
+        (3, 2, 7.50, '2023-09-26 11:30:00', 2, 3, 0, 'PayPal'),
         
-        (8, 2, 7.50, '2023-09-28 15:20:00', 5, 4, 0),
-        (9, 2, 7.50, '2023-09-29 13:40:00', 5, 4, 0),
+        (8, 2, 7.50, '2023-09-28 15:20:00', 5, 4, 0, 'Efectivo'),
+        (9, 2, 7.50, '2023-09-29 13:40:00', 5, 4, 0, 'Efectivo'),
         
-        (1, 3, 15.00, '2023-09-30 10:00:00', NULL, NULL, 1),
-        (2, 3, 15.00, '2023-10-01 11:15:00', NULL, NULL, 1),
-        (3, 3, 15.00, '2023-10-02 14:30:00', NULL, NULL, 1),
-        (4, 3, 15.00, '2023-10-03 16:45:00', NULL, NULL, 0),
-        (5, 3, 15.00, '2023-10-04 09:50:00', NULL, NULL, 0);
+        (1, 3, 15.00, '2023-09-30 10:00:00', NULL, NULL, 1, 'Tarjeta de débito'),
+        (2, 3, 15.00, '2023-10-01 11:15:00', NULL, NULL, 1, 'Tarjeta de débito'),
+        (3, 3, 15.00, '2023-10-02 14:30:00', NULL, NULL, 1, 'Efectivo'),
+        (4, 3, 15.00, '2023-10-03 16:45:00', NULL, NULL, 0, 'Efectivo'),
+        (5, 3, 15.00, '2023-10-04 09:50:00', NULL, NULL, 0, 'PayPal');
     
     -- Inserting Acreditacion data
     PRINT 'Inserting Acreditacion data...';
@@ -516,24 +517,44 @@ BEGIN TRY
     
     -- Inserting Traslado data
     PRINT 'Inserting Traslado data...';
-    INSERT INTO Traslado (persona_id, origen, destino, fecha, hora, tipo_transporte, observaciones)
+    INSERT INTO Traslado (persona_id, origen, destino, fecha, hora, tipo_transporte, observaciones, costo)
     VALUES 
-        (1, 'Aeropuerto', 'Hotel Festival', '2023-10-04', '14:30', 'Coche Privado', 'Recogida en Terminal 4'),
-        (1, 'Hotel Festival', 'Aeropuerto', '2023-10-12', '10:00', 'Coche Privado', 'Vuelo a las 13:00'),
-        (3, 'Estación de Tren', 'Hotel Festival', '2023-10-05', '16:45', 'Taxi', 'Tren llega a las 16:30'),
-        (3, 'Hotel Festival', 'Estación de Tren', '2023-10-07', '18:15', 'Taxi', 'Tren sale a las 19:00'),
-        (6, 'Aeropuerto', 'Hotel Festival', '2023-10-04', '15:20', 'Coche Privado', 'Recogida en Terminal 2'),
-        (6, 'Hotel Festival', 'Aeropuerto', '2023-10-12', '11:30', 'Coche Privado', 'Vuelo a las 14:15'),
-        (8, 'Aeropuerto', 'Hotel Festival', '2023-10-07', '09:45', 'Taxi', 'Recogida en Terminal 1'),
-        (8, 'Hotel Festival', 'Aeropuerto', '2023-10-10', '17:00', 'Taxi', 'Vuelo a las 19:30'),
-        (2, 'Aeropuerto', 'Hotel Festival', '2023-10-09', '12:30', 'Shuttle Festival', 'Recogida en punto de encuentro'),
-        (2, 'Hotel Festival', 'Aeropuerto', '2023-10-15', '15:45', 'Shuttle Festival', 'Vuelo a las 18:00'),
-        (4, 'Aeropuerto', 'Hotel Festival', '2023-10-06', '10:15', 'Coche Privado', 'Recogida en Terminal 3'),
-        (4, 'Hotel Festival', 'Sala Principal', '2023-10-07', '18:00', 'Taxi', 'Para proyección de gala'),
-        (5, 'Aeropuerto', 'Hotel Festival', '2023-10-08', '11:45', 'Coche Privado', 'Recogida en Terminal 4'),
-        (5, 'Hotel Festival', 'Sala Principal', '2023-10-09', '17:30', 'Taxi', 'Para evento de premiación'),
-        (9, 'Estación de Tren', 'Hotel Festival', '2023-10-07', '14:00', 'Shuttle Festival', 'Tren llega a las 13:45'),
-        (10, 'Aeropuerto', 'Hotel Festival', '2023-10-11', '13:15', 'Coche Privado', 'Recogida VIP');
+        (1, 'Aeropuerto', 'Hotel Festival', '2023-10-04', '14:30', 'Coche Privado', 'Recogida en Terminal 4', 120.00),
+        (1, 'Hotel Festival', 'Aeropuerto', '2023-10-12', '10:00', 'Coche Privado', 'Vuelo a las 13:00', 120.00),
+        (3, 'Estación de Tren', 'Hotel Festival', '2023-10-05', '16:45', 'Taxi', 'Tren llega a las 16:30', 45.00),
+        (3, 'Hotel Festival', 'Estación de Tren', '2023-10-07', '18:15', 'Taxi', 'Tren sale a las 19:00', 45.00),
+        (6, 'Aeropuerto', 'Hotel Festival', '2023-10-04', '15:20', 'Coche Privado', 'Recogida en Terminal 2', 120.00),
+        (6, 'Hotel Festival', 'Aeropuerto', '2023-10-12', '11:30', 'Coche Privado', 'Vuelo a las 14:15', 120.00),
+        (8, 'Aeropuerto', 'Hotel Festival', '2023-10-07', '09:45', 'Taxi', 'Recogida en Terminal 1', 60.00),
+        (8, 'Hotel Festival', 'Aeropuerto', '2023-10-10', '17:00', 'Taxi', 'Vuelo a las 19:30', 60.00),
+        (2, 'Aeropuerto', 'Hotel Festival', '2023-10-09', '12:30', 'Shuttle Festival', 'Recogida en punto de encuentro', 30.00),
+        (2, 'Hotel Festival', 'Aeropuerto', '2023-10-15', '15:45', 'Shuttle Festival', 'Vuelo a las 18:00', 30.00),
+        (4, 'Aeropuerto', 'Hotel Festival', '2023-10-06', '10:15', 'Coche Privado', 'Recogida en Terminal 3', 120.00),
+        (4, 'Hotel Festival', 'Sala Principal', '2023-10-07', '18:00', 'Taxi', 'Para proyección de gala', 35.00),
+        (5, 'Aeropuerto', 'Hotel Festival', '2023-10-08', '11:45', 'Coche Privado', 'Recogida en Terminal 4', 120.00),
+        (5, 'Hotel Festival', 'Sala Principal', '2023-10-09', '17:30', 'Taxi', 'Para evento de premiación', 35.00),
+        (9, 'Estación de Tren', 'Hotel Festival', '2023-10-07', '14:00', 'Shuttle Festival', 'Tren llega a las 13:45', 30.00),
+        (10, 'Aeropuerto', 'Hotel Festival', '2023-10-11', '13:15', 'Coche Privado', 'Recogida VIP', 150.00);
+    
+    -- Inserting Gasto_Festival data
+    PRINT 'Inserting Gasto_Festival data...';
+    INSERT INTO Gasto_Festival (edicion_festival, categoria_gasto, descripcion, monto, fecha_gasto, proveedor, numero_factura)
+    VALUES 
+        (2, 'Infraestructura', 'Alquiler de sistemas de sonido', 12500.00, '2023-09-10', 'SoundTech Pro', 'F2023-0123'),
+        (2, 'Infraestructura', 'Alquiler de pantallas LED', 18000.00, '2023-09-12', 'VisualSystems', 'VS-2023-145'),
+        (2, 'Personal', 'Personal técnico para proyecciones', 15000.00, '2023-09-20', 'TechStaff Services', 'TSS-458'),
+        (2, 'Personal', 'Seguridad y control de accesos', 8500.00, '2023-09-25', 'SecureEvents', 'SE-789-2023'),
+        (2, 'Marketing', 'Diseño e impresión de catálogos', 5200.00, '2023-08-15', 'PrintDesign Co.', 'PD-2023-089'),
+        (2, 'Marketing', 'Campaña en redes sociales', 7500.00, '2023-08-20', 'Digital Media Agency', 'DMA-2023-112'),
+        (2, 'Logística', 'Transporte de películas e invitados', 9800.00, '2023-09-15', 'TransportExpress', 'TX-45678'),
+        (2, 'Alojamiento', 'Alojamiento para jurado e invitados VIP', 22000.00, '2023-09-18', 'Hotel Festival', 'HF-2023-123'),
+        (2, 'Catering', 'Servicios de catering para eventos', 14500.00, '2023-09-22', 'GourmetEvents', 'GE-2023-078'),
+        (2, 'Premios', 'Fabricación de estatuillas y galardones', 6500.00, '2023-08-30', 'ArtTrophies', 'AT-2023-045'),
+        (1, 'Infraestructura', 'Alquiler de sistemas de proyección', 10800.00, '2022-09-05', 'ProyectaCine', 'PC-2022-087'),
+        (1, 'Personal', 'Azafatas y personal de sala', 7500.00, '2022-09-15', 'StaffPlus', 'SP-2022-123'),
+        (1, 'Marketing', 'Publicidad en medios tradicionales', 9000.00, '2022-08-10', 'MediaPress', 'MP-2022-056'),
+        (1, 'Logística', 'Acondicionamiento de espacios', 8200.00, '2022-09-02', 'SpaceDesign', 'SD-2022-034'),
+        (1, 'Catering', 'Cocktail inauguración', 11500.00, '2022-09-25', 'EliteFood', 'EF-2022-099');
     
     COMMIT TRANSACTION;
     PRINT 'Data insertion completed successfully.';

@@ -269,7 +269,9 @@ BEGIN TRY
             apellidos VARCHAR(150) NOT NULL,
             email VARCHAR(150) NOT NULL UNIQUE,
             telefono VARCHAR(50),
-            tipo_asistente VARCHAR(20) NOT NULL CHECK (tipo_asistente IN ('publico', 'prensa', 'industria', 'VIP'))
+            tipo_asistente VARCHAR(20) NOT NULL CHECK (tipo_asistente IN ('publico', 'prensa', 'industria', 'VIP')),
+            pais VARCHAR(100),
+            ciudad VARCHAR(100)
         );
     END
 
@@ -307,6 +309,7 @@ BEGIN TRY
             asistente_id INT,
             abono_id INT,
             usado BIT DEFAULT 0,
+            metodo_pago VARCHAR(50),
             FOREIGN KEY (proyeccion_id) REFERENCES Proyeccion(proyeccion_id),
             FOREIGN KEY (tipo_entrada_id) REFERENCES Tipo_Entrada(tipo_entrada_id),
             FOREIGN KEY (asistente_id) REFERENCES Asistente(asistente_id),
@@ -363,7 +366,9 @@ BEGIN TRY
             contacto_principal VARCHAR(200),
             telefono VARCHAR(50),
             email VARCHAR(150) NOT NULL,
-            tipo VARCHAR(100) NOT NULL
+            tipo VARCHAR(100) NOT NULL,
+            pais VARCHAR(100),
+            sector_industria VARCHAR(100)
         );
     END
 
@@ -419,7 +424,23 @@ BEGIN TRY
             hora TIME NOT NULL,
             tipo_transporte VARCHAR(100) NOT NULL,
             observaciones TEXT,
+            costo DECIMAL(10,2),
             FOREIGN KEY (persona_id) REFERENCES Persona(persona_id)
+        );
+    END
+
+    IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Gasto_Festival')
+    BEGIN
+        CREATE TABLE Gasto_Festival (
+            gasto_id INT IDENTITY(1,1) PRIMARY KEY,
+            edicion_festival INT NOT NULL,
+            categoria_gasto VARCHAR(100) NOT NULL,
+            descripcion TEXT,
+            monto DECIMAL(10,2) NOT NULL,
+            fecha_gasto DATE NOT NULL,
+            proveedor VARCHAR(200),
+            numero_factura VARCHAR(100),
+            FOREIGN KEY (edicion_festival) REFERENCES Edicion_Festival(edicion_id)
         );
     END
 
