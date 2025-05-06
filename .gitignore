@@ -8,6 +8,7 @@
 *.sln.docstates               # Estados de documentos en la solución
 *.vssscc                      # Fuente de control de VS
 *.vspscc                      # Fuente de control de VS
+.vs
 
 # -------------------------------------------------
 # Resultados de compilación de .NET (si los hubiera)
