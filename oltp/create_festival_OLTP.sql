@@ -402,6 +402,7 @@ BEGIN TRY
             fecha_salida DATE NOT NULL,
             tipo_habitacion VARCHAR(100),
             observaciones TEXT,
+            precio DECIMAL(10,2) NOT NULL,
             FOREIGN KEY (alojamiento_id) REFERENCES Alojamiento(alojamiento_id),
             FOREIGN KEY (persona_id) REFERENCES Persona(persona_id)
         );

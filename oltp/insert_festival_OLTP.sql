@@ -501,18 +501,18 @@ BEGIN TRY
     
     -- Inserting Reserva_Alojamiento data
     PRINT 'Inserting Reserva_Alojamiento data...';
-    INSERT INTO Reserva_Alojamiento (alojamiento_id, persona_id, fecha_entrada, fecha_salida, tipo_habitacion, observaciones)
+    INSERT INTO Reserva_Alojamiento (alojamiento_id, persona_id, fecha_entrada, fecha_salida, tipo_habitacion, observaciones, precio)
     VALUES 
-        (3, 1, '2023-10-04', '2023-10-12', 'Suite', 'Requiere botella de agua en habitación'),
-        (3, 6, '2023-10-04', '2023-10-12', 'Suite', 'Requiere almohadas hipoalergénicas'),
-        (3, 3, '2023-10-05', '2023-10-07', 'Junior Suite', 'Requiere late check-out'),
-        (3, 8, '2023-10-07', '2023-10-10', 'Junior Suite', 'Requiere servicio de despertador'),
-        (1, 4, '2023-10-06', '2023-10-13', 'Doble Superior', 'Requiere habitación con vistas'),
-        (1, 5, '2023-10-08', '2023-10-14', 'Doble Superior', 'Requiere habitación tranquila'),
-        (1, 2, '2023-10-09', '2023-10-15', 'Doble Estándar', 'No fumador'),
-        (2, 7, '2023-10-05', '2023-10-11', 'Apartamento', 'Requiere cocina equipada'),
-        (2, 9, '2023-10-07', '2023-10-13', 'Apartamento', 'Requiere cama extra'),
-        (4, 10, '2023-10-11', '2023-10-15', 'Individual', 'Con desayuno incluido');
+        (3, 1, '2023-10-04', '2023-10-12', 'Suite', 'Requiere botella de agua en habitación', 1200.00),
+        (3, 6, '2023-10-04', '2023-10-12', 'Suite', 'Requiere almohadas hipoalergénicas', 1200.00),
+        (3, 3, '2023-10-05', '2023-10-07', 'Junior Suite', 'Requiere late check-out', 600.00),
+        (3, 8, '2023-10-07', '2023-10-10', 'Junior Suite', 'Requiere servicio de despertador', 900.00),
+        (1, 4, '2023-10-06', '2023-10-13', 'Doble Superior', 'Requiere habitación con vistas', 1050.00),
+        (1, 5, '2023-10-08', '2023-10-14', 'Doble Superior', 'Requiere habitación tranquila', 900.00),
+        (1, 2, '2023-10-09', '2023-10-15', 'Doble Estándar', 'No fumador', 750.00),
+        (2, 7, '2023-10-05', '2023-10-11', 'Apartamento', 'Requiere cocina equipada', 1100.00),
+        (2, 9, '2023-10-07', '2023-10-13', 'Apartamento', 'Requiere cama extra', 1100.00),
+        (4, 10, '2023-10-11', '2023-10-15', 'Individual', 'Con desayuno incluido', 400.00);
     
     -- Inserting Traslado data
     PRINT 'Inserting Traslado data...';
