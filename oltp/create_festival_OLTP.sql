@@ -1,3 +1,4 @@
+-- Creación de la base de datos OLTP
 IF NOT EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = 'Festival_Final_OLTP')
 BEGIN
     CREATE DATABASE Festival_Final_OLTP;
@@ -21,7 +22,7 @@ BEGIN TRY
             apellidos VARCHAR(150) NOT NULL,
             email VARCHAR(150) UNIQUE,
             telefono VARCHAR(50),
-            biografia TEXT,
+            biografia NVARCHAR(MAX),
             nacionalidad VARCHAR(100)
         );
     END
@@ -39,7 +40,7 @@ BEGIN TRY
         CREATE TABLE Genero_Cinematografico (
             genero_id INT IDENTITY(1,1) PRIMARY KEY,
             nombre VARCHAR(100) NOT NULL UNIQUE,
-            descripcion TEXT
+            descripcion NVARCHAR(MAX)
         );
     END
 
@@ -72,7 +73,7 @@ BEGIN TRY
             anio INT NOT NULL,
             duracion INT NOT NULL,
             pais_origen VARCHAR(100) NOT NULL,
-            sinopsis TEXT,
+            sinopsis NVARCHAR(MAX),
             clasificacion_edad VARCHAR(50),
             formato_proyeccion VARCHAR(50),
             estado_seleccion VARCHAR(20) NOT NULL CHECK (estado_seleccion IN ('postulada', 'seleccionada', 'rechazada', 'premiada'))
@@ -123,7 +124,7 @@ BEGIN TRY
             nombre VARCHAR(100) NOT NULL,
             ubicacion VARCHAR(200) NOT NULL,
             capacidad INT NOT NULL,
-            caracteristicas_tecnicas TEXT
+            caracteristicas_tecnicas NVARCHAR(MAX)
         );
     END
 
@@ -147,7 +148,7 @@ BEGIN TRY
         CREATE TABLE QA_Sesion (
             qa_id INT IDENTITY(1,1) PRIMARY KEY,
             proyeccion_id INT NOT NULL,
-            descripcion TEXT,
+            descripcion NVARCHAR(MAX),
             moderador VARCHAR(200),
             FOREIGN KEY (proyeccion_id) REFERENCES Proyeccion(proyeccion_id)
         );
@@ -169,7 +170,7 @@ BEGIN TRY
         CREATE TABLE Categoria_Competicion (
             categoria_id INT IDENTITY(1,1) PRIMARY KEY,
             nombre VARCHAR(150) NOT NULL,
-            descripcion TEXT,
+            descripcion NVARCHAR(MAX),
             edicion_festival INT NOT NULL,
             FOREIGN KEY (edicion_festival) REFERENCES Edicion_Festival(edicion_id)
         );
@@ -227,7 +228,7 @@ BEGIN TRY
             jurado_id INT NOT NULL,
             persona_id INT NOT NULL,
             puntuacion DECIMAL(4,2) NOT NULL,
-            comentarios TEXT,
+            comentarios NVARCHAR(MAX),
             fecha_evaluacion DATETIME NOT NULL,
             FOREIGN KEY (pelicula_id) REFERENCES Pelicula(pelicula_id),
             FOREIGN KEY (jurado_id) REFERENCES Jurado(jurado_id),
@@ -242,7 +243,7 @@ BEGIN TRY
             nombre VARCHAR(200) NOT NULL,
             categoria_id INT NOT NULL,
             dotacion DECIMAL(10,2),
-            descripcion TEXT,
+            descripcion NVARCHAR(MAX),
             FOREIGN KEY (categoria_id) REFERENCES Categoria_Competicion(categoria_id)
         );
     END
@@ -280,7 +281,7 @@ BEGIN TRY
         CREATE TABLE Tipo_Entrada (
             tipo_entrada_id INT IDENTITY(1,1) PRIMARY KEY,
             nombre VARCHAR(100) NOT NULL UNIQUE,
-            descripcion TEXT,
+            descripcion NVARCHAR(MAX),
             precio_base DECIMAL(8,2) NOT NULL
         );
     END
@@ -335,7 +336,7 @@ BEGIN TRY
             evento_id INT IDENTITY(1,1) PRIMARY KEY,
             nombre VARCHAR(200) NOT NULL,
             tipo VARCHAR(100) NOT NULL,
-            descripcion TEXT,
+            descripcion NVARCHAR(MAX),
             fecha DATE NOT NULL,
             hora_inicio TIME NOT NULL,
             hora_fin TIME NOT NULL,
@@ -380,7 +381,7 @@ BEGIN TRY
             edicion_festival INT NOT NULL,
             tipo_aportacion VARCHAR(100) NOT NULL,
             valor_monetario DECIMAL(10,2),
-            descripcion_aportacion TEXT,
+            descripcion_aportacion NVARCHAR(MAX),
             FOREIGN KEY (patrocinador_id) REFERENCES Patrocinador(patrocinador_id),
             FOREIGN KEY (edicion_festival) REFERENCES Edicion_Festival(edicion_id)
         );
@@ -406,7 +407,7 @@ BEGIN TRY
             fecha_entrada DATE NOT NULL,
             fecha_salida DATE NOT NULL,
             tipo_habitacion VARCHAR(100),
-            observaciones TEXT,
+            observaciones NVARCHAR(MAX),
             precio DECIMAL(10,2) NOT NULL,
             FOREIGN KEY (alojamiento_id) REFERENCES Alojamiento(alojamiento_id),
             FOREIGN KEY (persona_id) REFERENCES Persona(persona_id)
@@ -423,7 +424,7 @@ BEGIN TRY
             fecha DATE NOT NULL,
             hora TIME NOT NULL,
             tipo_transporte VARCHAR(100) NOT NULL,
-            observaciones TEXT,
+            observaciones NVARCHAR(MAX),
             costo DECIMAL(10,2),
             FOREIGN KEY (persona_id) REFERENCES Persona(persona_id)
         );
@@ -435,7 +436,7 @@ BEGIN TRY
             gasto_id INT IDENTITY(1,1) PRIMARY KEY,
             edicion_festival INT NOT NULL,
             categoria_gasto VARCHAR(100) NOT NULL,
-            descripcion TEXT,
+            descripcion NVARCHAR(MAX),
             monto DECIMAL(10,2) NOT NULL,
             fecha_gasto DATE NOT NULL,
             proveedor VARCHAR(200),
