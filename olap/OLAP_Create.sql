@@ -20,6 +20,7 @@ CREATE TABLE DIM_Tiempo (
     es_festivo BIT,
     temporada_festival VARCHAR(20)
 );
+GO
 
 CREATE TABLE DIM_Pelicula (
     pelicula_id INT PRIMARY KEY,
@@ -31,6 +32,7 @@ CREATE TABLE DIM_Pelicula (
     formato_proyeccion VARCHAR(50),
     nombre_director_principal VARCHAR(200)
 );
+GO
 
 CREATE TABLE DIM_Categoria (
     categoria_id INT PRIMARY KEY,
@@ -38,6 +40,7 @@ CREATE TABLE DIM_Categoria (
     descripcion NVARCHAR(MAX),
     tipo_categoria VARCHAR(100)
 );
+GO
 
 CREATE TABLE DIM_Sala (
     sala_id INT PRIMARY KEY,
@@ -46,6 +49,7 @@ CREATE TABLE DIM_Sala (
     capacidad INT,
     tipo_sala VARCHAR(100)
 );
+GO
 
 CREATE TABLE DIM_Persona (
     persona_id INT PRIMARY KEY,
@@ -53,6 +57,7 @@ CREATE TABLE DIM_Persona (
     pais_origen VARCHAR(100),
     tipo_persona VARCHAR(100)
 );
+GO
 
 CREATE TABLE DIM_Asistente (
     asistente_id INT PRIMARY KEY,
@@ -61,6 +66,7 @@ CREATE TABLE DIM_Asistente (
     genero VARCHAR(20),
     procedencia_geografica VARCHAR(100)
 );
+GO
 
 CREATE TABLE DIM_Entrada (
     entrada_id INT PRIMARY KEY,
@@ -69,6 +75,7 @@ CREATE TABLE DIM_Entrada (
     precio_base DECIMAL(8,2),
     descuento_aplicado DECIMAL(8,2)
 );
+GO
 
 CREATE TABLE DIM_Evento (
     evento_id INT PRIMARY KEY,
@@ -76,6 +83,7 @@ CREATE TABLE DIM_Evento (
     tipo_evento VARCHAR(100),
     requiere_inscripcion BIT
 );
+GO
 
 CREATE TABLE DIM_Jurado (
     jurado_id INT PRIMARY KEY,
@@ -83,6 +91,7 @@ CREATE TABLE DIM_Jurado (
     categoria_evaluacion VARCHAR(100),
     numero_miembros INT
 );
+GO
 
 CREATE TABLE DIM_Edicion (
     edicion_id INT PRIMARY KEY,
@@ -91,6 +100,7 @@ CREATE TABLE DIM_Edicion (
     director_festival VARCHAR(200),
     fechas VARCHAR(100)
 );
+GO
 
 CREATE TABLE DIM_Patrocinador (
     patrocinador_id INT PRIMARY KEY,
@@ -102,6 +112,7 @@ CREATE TABLE DIM_Patrocinador (
     sector_industria NVARCHAR(100),
     pais_origen NVARCHAR(100)
 );
+GO
 
 /*===========================================
   =====             HECHOS              =====
@@ -123,11 +134,14 @@ CREATE TABLE FACT_Proyecciones (
     FOREIGN KEY (sala_id) REFERENCES DIM_Sala(sala_id),
     FOREIGN KEY (edicion_id) REFERENCES DIM_Edicion(edicion_id)
 );
+GO
 
 CREATE TABLE FACT_Ventas_Entradas (
     venta_id INT PRIMARY KEY,
     tiempo_id INT,
-    proyeccion_id INT,
+    pelicula_id INT,
+    sala_id INT,
+    tiempo_proyeccion_id INT,
     asistente_id INT,
     entrada_id INT,
     edicion_id INT,
@@ -136,11 +150,14 @@ CREATE TABLE FACT_Ventas_Entradas (
     fue_utilizada BIT,
     tiempo_compra_anticipada INT,
     FOREIGN KEY (tiempo_id) REFERENCES DIM_Tiempo(tiempo_id),
-    FOREIGN KEY (proyeccion_id) REFERENCES FACT_Proyecciones(proyeccion_id),
+    FOREIGN KEY (pelicula_id) REFERENCES DIM_Pelicula(pelicula_id),
+    FOREIGN KEY (sala_id) REFERENCES DIM_Sala(sala_id),
+    FOREIGN KEY (tiempo_proyeccion_id) REFERENCES DIM_Tiempo(tiempo_id),
     FOREIGN KEY (asistente_id) REFERENCES DIM_Asistente(asistente_id),
     FOREIGN KEY (entrada_id) REFERENCES DIM_Entrada(entrada_id),
     FOREIGN KEY (edicion_id) REFERENCES DIM_Edicion(edicion_id)
 );
+GO
 
 CREATE TABLE FACT_Evaluaciones_Jurado (
     evaluacion_id INT PRIMARY KEY,
@@ -159,6 +176,7 @@ CREATE TABLE FACT_Evaluaciones_Jurado (
     FOREIGN KEY (edicion_id) REFERENCES DIM_Edicion(edicion_id),
     FOREIGN KEY (tiempo_id) REFERENCES DIM_Tiempo(tiempo_id)
 );
+GO
 
 CREATE TABLE FACT_Premios (
     premio_id INT PRIMARY KEY,
@@ -175,6 +193,7 @@ CREATE TABLE FACT_Premios (
     FOREIGN KEY (edicion_id) REFERENCES DIM_Edicion(edicion_id),
     FOREIGN KEY (tiempo_id) REFERENCES DIM_Tiempo(tiempo_id)
 );
+GO
 
 CREATE TABLE FACT_Eventos_Paralelos (
     evento_participacion_id INT PRIMARY KEY,
@@ -193,6 +212,7 @@ CREATE TABLE FACT_Eventos_Paralelos (
     FOREIGN KEY (asistente_id) REFERENCES DIM_Asistente(asistente_id),
     FOREIGN KEY (edicion_id) REFERENCES DIM_Edicion(edicion_id)
 );
+GO
 
 CREATE TABLE FACT_Patrocinios (
     patrocinio_id INT PRIMARY KEY,
@@ -207,3 +227,4 @@ CREATE TABLE FACT_Patrocinios (
     FOREIGN KEY (edicion_id) REFERENCES DIM_Edicion(edicion_id),
     FOREIGN KEY (tiempo_id) REFERENCES DIM_Tiempo(tiempo_id)
 );
+GO
