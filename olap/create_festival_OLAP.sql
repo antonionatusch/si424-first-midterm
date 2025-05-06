@@ -1,7 +1,4 @@
 -- Diseño detallado del esquema OLAP
-USE master;
-GO
-
 IF NOT EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = 'Festival_Final_OLAP')
 BEGIN
     CREATE DATABASE Festival_Final_OLAP;

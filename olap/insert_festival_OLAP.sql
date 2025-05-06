@@ -3,14 +3,10 @@ GO
 
 BEGIN TRY
     BEGIN TRANSACTION;
-    
-    -- 1. PRIMERO LLENAMOS LAS DIMENSIONES
+    -- 3. AHORA CARGAMOS LAS DIMENSIONES
     
     -- DIM_Tiempo: Generación de fechas para el periodo del festival y fechas relacionadas
     PRINT 'Cargando DIM_Tiempo...';
-    
-    -- Borrar datos existentes si hay
-    TRUNCATE TABLE DIM_Tiempo;
     
     -- Declaro variables para definir el rango de fechas
     DECLARE @FechaInicio DATE = '2022-08-01'; -- 2 meses antes del primer festival
@@ -60,223 +56,8 @@ BEGIN TRY
     FROM @Fechas F
     ORDER BY F.FechaCalendario;
     
-    -- DIM_Pelicula
-    PRINT 'Cargando DIM_Pelicula...';
-    TRUNCATE TABLE DIM_Pelicula;
-    
-    INSERT INTO DIM_Pelicula (
-        pelicula_id, titulo, anio_produccion, duracion, pais_origen, 
-        clasificacion_edad, formato_proyeccion, nombre_director_principal,
-        estado_seleccion, generos, idioma_original, 
-        tiene_subtitulos_espanol, tiene_subtitulos_ingles
-    )
-    SELECT 
-        p.pelicula_id, 
-        p.titulo, 
-        p.anio, 
-        p.duracion, 
-        p.pais_origen, 
-        p.clasificacion_edad, 
-        p.formato_proyeccion,
-        (SELECT TOP 1 per.nombre + ' ' + per.apellidos 
-         FROM Festival_Final_OLTP.dbo.Pelicula_Persona_Rol ppr 
-         JOIN Festival_Final_OLTP.dbo.Persona per ON ppr.persona_id = per.persona_id 
-         JOIN Festival_Final_OLTP.dbo.Rol_Cinematografico rc ON ppr.rol_id = rc.rol_id 
-         WHERE ppr.pelicula_id = p.pelicula_id AND rc.nombre = 'Director' 
-         ORDER BY per.nombre),
-        p.estado_seleccion,
-        STUFF((SELECT ', ' + gc.nombre 
-               FROM Festival_Final_OLTP.dbo.Pelicula_Genero pg 
-               JOIN Festival_Final_OLTP.dbo.Genero_Cinematografico gc ON pg.genero_id = gc.genero_id 
-               WHERE pg.pelicula_id = p.pelicula_id 
-               FOR XML PATH('')), 1, 2, ''),
-        (SELECT TOP 1 i.nombre 
-         FROM Festival_Final_OLTP.dbo.Pelicula_Idioma pi 
-         JOIN Festival_Final_OLTP.dbo.Idioma i ON pi.idioma_id = i.idioma_id 
-         WHERE pi.pelicula_id = p.pelicula_id AND pi.tipo = 'original'),
-        CASE WHEN EXISTS (
-            SELECT 1 FROM Festival_Final_OLTP.dbo.Pelicula_Idioma pi 
-            JOIN Festival_Final_OLTP.dbo.Idioma i ON pi.idioma_id = i.idioma_id 
-            WHERE pi.pelicula_id = p.pelicula_id AND pi.tipo = 'subtitulos' AND i.codigo_iso = 'ES'
-        ) THEN 1 ELSE 0 END,
-        CASE WHEN EXISTS (
-            SELECT 1 FROM Festival_Final_OLTP.dbo.Pelicula_Idioma pi 
-            JOIN Festival_Final_OLTP.dbo.Idioma i ON pi.idioma_id = i.idioma_id 
-            WHERE pi.pelicula_id = p.pelicula_id AND pi.tipo = 'subtitulos' AND i.codigo_iso = 'EN'
-        ) THEN 1 ELSE 0 END
-    FROM Festival_Final_OLTP.dbo.Pelicula p;
-    
-    -- DIM_Categoria
-    PRINT 'Cargando DIM_Categoria...';
-    TRUNCATE TABLE DIM_Categoria;
-    
-    INSERT INTO DIM_Categoria (
-        categoria_id, nombre_categoria, descripcion, tipo_categoria, edicion_anio
-    )
-    SELECT 
-        cc.categoria_id,
-        cc.nombre,
-        cc.descripcion,
-        'Competición oficial', -- Todas son de competición oficial en este modelo
-        ef.anio
-    FROM Festival_Final_OLTP.dbo.Categoria_Competicion cc
-    JOIN Festival_Final_OLTP.dbo.Edicion_Festival ef ON cc.edicion_festival = ef.edicion_id;
-    
-    -- DIM_Sala
-    PRINT 'Cargando DIM_Sala...';
-    TRUNCATE TABLE DIM_Sala;
-    
-    INSERT INTO DIM_Sala (
-        sala_id, nombre_sala, ubicacion, capacidad, tipo_sala, caracteristicas_tecnicas
-    )
-    SELECT 
-        s.sala_id,
-        s.nombre,
-        s.ubicacion,
-        s.capacidad,
-        CASE 
-            WHEN s.nombre LIKE '%Principal%' THEN 'principal'
-            WHEN s.nombre LIKE '%VIP%' THEN 'vip'
-            WHEN s.nombre LIKE '%Exterior%' THEN 'exterior'
-            ELSE 'secundaria'
-        END,
-        s.caracteristicas_tecnicas
-    FROM Festival_Final_OLTP.dbo.Sala s;
-    
-    -- DIM_Persona
-    PRINT 'Cargando DIM_Persona...';
-    TRUNCATE TABLE DIM_Persona;
-    
-    INSERT INTO DIM_Persona (
-        persona_id, nombre_completo, email, nacionalidad, roles_principales, biografia
-    )
-    SELECT 
-        p.persona_id,
-        p.nombre + ' ' + p.apellidos,
-        p.email,
-        p.nacionalidad,
-        STUFF((SELECT ', ' + rc.nombre 
-               FROM Festival_Final_OLTP.dbo.Pelicula_Persona_Rol ppr 
-               JOIN Festival_Final_OLTP.dbo.Rol_Cinematografico rc ON ppr.rol_id = rc.rol_id 
-               WHERE ppr.persona_id = p.persona_id 
-               GROUP BY rc.nombre
-               FOR XML PATH('')), 1, 2, ''),
-        p.biografia
-    FROM Festival_Final_OLTP.dbo.Persona p;
-    
-    -- DIM_Asistente
-    PRINT 'Cargando DIM_Asistente...';
-    TRUNCATE TABLE DIM_Asistente;
-    
-    INSERT INTO DIM_Asistente (
-        asistente_id, nombre_completo, email, telefono, tipo_asistente, 
-        pais, ciudad, tiene_acreditacion, tipo_acreditacion
-    )
-    SELECT 
-        a.asistente_id,
-        a.nombre + ' ' + a.apellidos,
-        a.email,
-        a.telefono,
-        a.tipo_asistente,
-        a.pais,
-        a.ciudad,
-        CASE WHEN ac.acreditacion_id IS NOT NULL THEN 1 ELSE 0 END,
-        ac.tipo_acreditacion
-    FROM Festival_Final_OLTP.dbo.Asistente a
-    LEFT JOIN Festival_Final_OLTP.dbo.Acreditacion ac ON a.asistente_id = ac.asistente_id;
-    
-    -- DIM_Entrada
-    PRINT 'Cargando DIM_Entrada...';
-    TRUNCATE TABLE DIM_Entrada;
-    
-    INSERT INTO DIM_Entrada (
-        tipo_entrada_id, nombre, descripcion, precio_base, es_abono, metodo_pago
-    )
-    SELECT 
-        te.tipo_entrada_id,
-        te.nombre,
-        te.descripcion,
-        te.precio_base,
-        0, -- No es abono
-        NULL -- El método de pago se reflejará en cada venta
-    FROM Festival_Final_OLTP.dbo.Tipo_Entrada te
-    UNION
-    SELECT 
-        1000 + ROW_NUMBER() OVER (ORDER BY tipo_abono), -- Asignamos IDs a partir de 1000 para los abonos
-        tipo_abono,
-        'Abono: ' + tipo_abono,
-        precio,
-        1, -- Es abono
-        NULL
-    FROM Festival_Final_OLTP.dbo.Abono
-    GROUP BY tipo_abono, precio; -- Agrupamos para evitar duplicados
-    
--- DIM_Evento
-PRINT 'Cargando DIM_Evento...';
-TRUNCATE TABLE DIM_Evento;
-
--- Usamos CTEs para mejor manejo de los tipos de datos
-WITH EventosParalelos AS (
-    SELECT 
-        ep.evento_id,
-        CAST(ep.nombre AS NVARCHAR(200)) AS nombre_evento,
-        CAST(ep.tipo AS NVARCHAR(100)) AS tipo_evento,
-        CAST(ep.descripcion AS NVARCHAR(MAX)) AS descripcion,
-        CAST(ep.ubicacion AS NVARCHAR(200)) AS ubicacion,
-        ep.aforo_maximo,
-        ep.requiere_inscripcion
-    FROM Festival_Final_OLTP.dbo.Evento_Paralelo ep
-),
-Proyecciones AS (
-    SELECT 
-        10000 + pr.proyeccion_id AS evento_id,
-        CAST(p.titulo + ' (Proyección)' AS NVARCHAR(200)) AS nombre_evento,
-        CAST('Proyección' AS NVARCHAR(100)) AS tipo_evento,
-        CAST(p.sinopsis AS NVARCHAR(MAX)) AS descripcion,
-        CAST(s.nombre + ', ' + s.ubicacion AS NVARCHAR(200)) AS ubicacion,
-        s.capacidad AS aforo_maximo,
-        0 AS requiere_inscripcion -- Esta línea estaba incompleta y faltaba cerrar el paréntesis
-    FROM Festival_Final_OLTP.dbo.Proyeccion pr
-    JOIN Festival_Final_OLTP.dbo.Pelicula p ON pr.pelicula_id = p.pelicula_id
-    JOIN Festival_Final_OLTP.dbo.Sala s ON pr.sala_id = s.sala_id
-)
--- Añadimos la instrucción INSERT que faltaba:
-INSERT INTO DIM_Evento (
-    evento_id, nombre_evento, tipo_evento, descripcion, ubicacion, 
-    aforo_maximo, requiere_inscripcion
-)
-SELECT * FROM EventosParalelos
-UNION ALL
-SELECT * FROM Proyecciones;
-        
-    
-    -- DIM_Jurado
-    PRINT 'Cargando DIM_Jurado...';
-    TRUNCATE TABLE DIM_Jurado;
-    
-    INSERT INTO DIM_Jurado (
-        jurado_id, nombre_jurado, edicion_anio, categorias_evaluacion, miembros
-    )
-    SELECT 
-        j.jurado_id,
-        j.nombre,
-        ef.anio,
-        STUFF((SELECT ', ' + cc.nombre 
-               FROM Festival_Final_OLTP.dbo.Jurado_Categoria jc 
-               JOIN Festival_Final_OLTP.dbo.Categoria_Competicion cc ON jc.categoria_id = cc.categoria_id 
-               WHERE jc.jurado_id = j.jurado_id 
-               FOR XML PATH('')), 1, 2, ''),
-        STUFF((SELECT ', ' + p.nombre + ' ' + p.apellidos + ' (' + mj.cargo + ')' 
-               FROM Festival_Final_OLTP.dbo.Miembro_Jurado mj 
-               JOIN Festival_Final_OLTP.dbo.Persona p ON mj.persona_id = p.persona_id 
-               WHERE mj.jurado_id = j.jurado_id 
-               FOR XML PATH('')), 1, 2, '')
-    FROM Festival_Final_OLTP.dbo.Jurado j
-    JOIN Festival_Final_OLTP.dbo.Edicion_Festival ef ON j.edicion_festival = ef.edicion_id;
-    
     -- DIM_Edicion
     PRINT 'Cargando DIM_Edicion...';
-    TRUNCATE TABLE DIM_Edicion;
     
     INSERT INTO DIM_Edicion (
         edicion_id, anio, tema, director_festival, fecha_inicio, fecha_fin, duracion_dias
@@ -291,48 +72,31 @@ SELECT * FROM Proyecciones;
         DATEDIFF(DAY, ef.fecha_inicio, ef.fecha_fin) + 1
     FROM Festival_Final_OLTP.dbo.Edicion_Festival ef;
     
-    -- DIM_Patrocinador
-    PRINT 'Cargando DIM_Patrocinador...';
-    TRUNCATE TABLE DIM_Patrocinador;
+    -- DIM_CategoriaGasto
+    PRINT 'Cargando DIM_CategoriaGasto...';
     
-    INSERT INTO DIM_Patrocinador (
-        patrocinador_id, nombre, contacto_principal, tipo, pais, 
-        sector_industria, es_recurrente, categorias_patrocinio
+    INSERT INTO DIM_CategoriaGasto (
+        nombre_categoria, tipo_gasto, es_amortizable, frecuencia
     )
-    SELECT 
-        p.patrocinador_id,
-        p.nombre,
-        p.contacto_principal,
-        p.tipo,
-        p.pais,
-        p.sector_industria,
-        CASE WHEN COUNT(DISTINCT pa.edicion_festival) > 1 THEN 1 ELSE 0 END,
-        STUFF((SELECT ', ' + pa.tipo_aportacion 
-               FROM Festival_Final_OLTP.dbo.Patrocinio pa 
-               WHERE pa.patrocinador_id = p.patrocinador_id 
-               GROUP BY pa.tipo_aportacion
-               FOR XML PATH('')), 1, 2, '')
-    FROM Festival_Final_OLTP.dbo.Patrocinador p
-    LEFT JOIN Festival_Final_OLTP.dbo.Patrocinio pa ON p.patrocinador_id = pa.patrocinador_id
-    GROUP BY p.patrocinador_id, p.nombre, p.contacto_principal, p.tipo, p.pais, p.sector_industria;
-    
-    -- DIM_MetodoPago
-    PRINT 'Cargando DIM_MetodoPago...';
-    TRUNCATE TABLE DIM_MetodoPago;
-    
-    INSERT INTO DIM_MetodoPago (
-        nombre_metodo, tipo_metodo, requiere_procesamiento, comision_porcentaje
-    )
-    VALUES 
-        ('Efectivo', 'efectivo', 0, 0),
-        ('Tarjeta de crédito', 'tarjeta', 1, 2.5),
-        ('Tarjeta de débito', 'tarjeta', 1, 1.5),
-        ('PayPal', 'electrónico', 1, 3.0),
-        ('Transferencia bancaria', 'transferencia', 1, 0.5);
+    SELECT DISTINCT
+        categoria_gasto,
+        CASE 
+            WHEN categoria_gasto IN ('Infraestructura', 'Personal', 'Alojamiento') THEN 'operativo'
+            WHEN categoria_gasto IN ('Marketing', 'Premios') THEN 'promocional'
+            WHEN categoria_gasto IN ('Logística', 'Transporte') THEN 'logístico'
+            WHEN categoria_gasto IN ('Catering') THEN 'servicio'
+            ELSE 'otro'
+        END,
+        CASE WHEN categoria_gasto = 'Infraestructura' THEN 1 ELSE 0 END,
+        CASE 
+            WHEN categoria_gasto IN ('Personal', 'Infraestructura') THEN 'recurrente'
+            WHEN categoria_gasto IN ('Premios', 'Catering') THEN 'anual'
+            ELSE 'variable'
+        END
+    FROM Festival_Final_OLTP.dbo.Gasto_Festival;
     
     -- DIM_Geografia
     PRINT 'Cargando DIM_Geografia...';
-    TRUNCATE TABLE DIM_Geografia;
     
     -- Primero ingresamos ubicaciones de las salas
     INSERT INTO DIM_Geografia (pais, ciudad, continente, region)
@@ -429,35 +193,251 @@ SELECT * FROM Proyecciones;
     FROM Festival_Final_OLTP.dbo.Traslado t
     WHERE t.destino NOT IN (SELECT DISTINCT ciudad FROM DIM_Geografia WHERE pais = 'España');
     
-    -- DIM_CategoriaGasto
-    PRINT 'Cargando DIM_CategoriaGasto...';
-    TRUNCATE TABLE DIM_CategoriaGasto;
+    -- DIM_MetodoPago
+    PRINT 'Cargando DIM_MetodoPago...';
     
-    INSERT INTO DIM_CategoriaGasto (
-        nombre_categoria, tipo_gasto, es_amortizable, frecuencia
+    INSERT INTO DIM_MetodoPago (
+        nombre_metodo, tipo_metodo, requiere_procesamiento, comision_porcentaje
     )
-    SELECT DISTINCT
-        categoria_gasto,
-        CASE 
-            WHEN categoria_gasto IN ('Infraestructura', 'Personal', 'Alojamiento') THEN 'operativo'
-            WHEN categoria_gasto IN ('Marketing', 'Premios') THEN 'promocional'
-            WHEN categoria_gasto IN ('Logística', 'Transporte') THEN 'logístico'
-            WHEN categoria_gasto IN ('Catering') THEN 'servicio'
-            ELSE 'otro'
-        END,
-        CASE WHEN categoria_gasto = 'Infraestructura' THEN 1 ELSE 0 END,
-        CASE 
-            WHEN categoria_gasto IN ('Personal', 'Infraestructura') THEN 'recurrente'
-            WHEN categoria_gasto IN ('Premios', 'Catering') THEN 'anual'
-            ELSE 'variable'
-        END
-    FROM Festival_Final_OLTP.dbo.Gasto_Festival;
+    VALUES 
+        ('Efectivo', 'efectivo', 0, 0),
+        ('Tarjeta de crédito', 'tarjeta', 1, 2.5),
+        ('Tarjeta de débito', 'tarjeta', 1, 1.5),
+        ('PayPal', 'electrónico', 1, 3.0),
+        ('Transferencia bancaria', 'transferencia', 1, 0.5);
     
-    -- 2. TABLAS DE HECHOS
+    -- DIM_Pelicula
+    PRINT 'Cargando DIM_Pelicula...';
+    
+    INSERT INTO DIM_Pelicula (
+        pelicula_id, titulo, anio_produccion, duracion, pais_origen, 
+        clasificacion_edad, formato_proyeccion, nombre_director_principal,
+        estado_seleccion, generos, idioma_original, 
+        tiene_subtitulos_espanol, tiene_subtitulos_ingles
+    )
+    SELECT 
+        p.pelicula_id, 
+        p.titulo, 
+        p.anio, 
+        p.duracion, 
+        p.pais_origen, 
+        p.clasificacion_edad, 
+        p.formato_proyeccion,
+        (SELECT TOP 1 per.nombre + ' ' + per.apellidos 
+         FROM Festival_Final_OLTP.dbo.Pelicula_Persona_Rol ppr 
+         JOIN Festival_Final_OLTP.dbo.Persona per ON ppr.persona_id = per.persona_id 
+         JOIN Festival_Final_OLTP.dbo.Rol_Cinematografico rc ON ppr.rol_id = rc.rol_id 
+         WHERE ppr.pelicula_id = p.pelicula_id AND rc.nombre = 'Director' 
+         ORDER BY per.nombre),
+        p.estado_seleccion,
+        STUFF((SELECT ', ' + gc.nombre 
+               FROM Festival_Final_OLTP.dbo.Pelicula_Genero pg 
+               JOIN Festival_Final_OLTP.dbo.Genero_Cinematografico gc ON pg.genero_id = gc.genero_id 
+               WHERE pg.pelicula_id = p.pelicula_id 
+               FOR XML PATH('')), 1, 2, ''),
+        (SELECT TOP 1 i.nombre 
+         FROM Festival_Final_OLTP.dbo.Pelicula_Idioma pi 
+         JOIN Festival_Final_OLTP.dbo.Idioma i ON pi.idioma_id = i.idioma_id 
+         WHERE pi.pelicula_id = p.pelicula_id AND pi.tipo = 'original'),
+        CASE WHEN EXISTS (
+            SELECT 1 FROM Festival_Final_OLTP.dbo.Pelicula_Idioma pi 
+            JOIN Festival_Final_OLTP.dbo.Idioma i ON pi.idioma_id = i.idioma_id 
+            WHERE pi.pelicula_id = p.pelicula_id AND pi.tipo = 'subtitulos' AND i.codigo_iso = 'ES'
+        ) THEN 1 ELSE 0 END,
+        CASE WHEN EXISTS (
+            SELECT 1 FROM Festival_Final_OLTP.dbo.Pelicula_Idioma pi 
+            JOIN Festival_Final_OLTP.dbo.Idioma i ON pi.idioma_id = i.idioma_id 
+            WHERE pi.pelicula_id = p.pelicula_id AND pi.tipo = 'subtitulos' AND i.codigo_iso = 'EN'
+        ) THEN 1 ELSE 0 END
+    FROM Festival_Final_OLTP.dbo.Pelicula p;
+    
+    -- DIM_Categoria
+    PRINT 'Cargando DIM_Categoria...';
+    
+    INSERT INTO DIM_Categoria (
+        categoria_id, nombre_categoria, descripcion, tipo_categoria, edicion_anio
+    )
+    SELECT 
+        cc.categoria_id,
+        cc.nombre,
+        cc.descripcion,
+        'Competición oficial', -- Todas son de competición oficial en este modelo
+        ef.anio
+    FROM Festival_Final_OLTP.dbo.Categoria_Competicion cc
+    JOIN Festival_Final_OLTP.dbo.Edicion_Festival ef ON cc.edicion_festival = ef.edicion_id;
+    
+    -- DIM_Sala
+    PRINT 'Cargando DIM_Sala...';
+    
+    INSERT INTO DIM_Sala (
+        sala_id, nombre_sala, ubicacion, capacidad, tipo_sala, caracteristicas_tecnicas
+    )
+    SELECT 
+        s.sala_id,
+        s.nombre,
+        s.ubicacion,
+        s.capacidad,
+        CASE 
+            WHEN s.nombre LIKE '%Principal%' THEN 'principal'
+            WHEN s.nombre LIKE '%VIP%' THEN 'vip'
+            WHEN s.nombre LIKE '%Exterior%' THEN 'exterior'
+            ELSE 'secundaria'
+        END,
+        s.caracteristicas_tecnicas
+    FROM Festival_Final_OLTP.dbo.Sala s;
+    
+    -- DIM_Persona
+    PRINT 'Cargando DIM_Persona...';
+    
+    INSERT INTO DIM_Persona (
+        persona_id, nombre_completo, email, nacionalidad, roles_principales, biografia
+    )
+    SELECT 
+        p.persona_id,
+        p.nombre + ' ' + p.apellidos,
+        p.email,
+        p.nacionalidad,
+        STUFF((SELECT ', ' + rc.nombre 
+               FROM Festival_Final_OLTP.dbo.Pelicula_Persona_Rol ppr 
+               JOIN Festival_Final_OLTP.dbo.Rol_Cinematografico rc ON ppr.rol_id = rc.rol_id 
+               WHERE ppr.persona_id = p.persona_id 
+               GROUP BY rc.nombre
+               FOR XML PATH('')), 1, 2, ''),
+        p.biografia
+    FROM Festival_Final_OLTP.dbo.Persona p;
+    
+    -- DIM_Asistente
+    PRINT 'Cargando DIM_Asistente...';
+    
+    INSERT INTO DIM_Asistente (
+        asistente_id, nombre_completo, email, telefono, tipo_asistente, 
+        pais, ciudad, tiene_acreditacion, tipo_acreditacion
+    )
+    SELECT 
+        a.asistente_id,
+        a.nombre + ' ' + a.apellidos,
+        a.email,
+        a.telefono,
+        a.tipo_asistente,
+        a.pais,
+        a.ciudad,
+        CASE WHEN ac.acreditacion_id IS NOT NULL THEN 1 ELSE 0 END,
+        ac.tipo_acreditacion
+    FROM Festival_Final_OLTP.dbo.Asistente a
+    LEFT JOIN Festival_Final_OLTP.dbo.Acreditacion ac ON a.asistente_id = ac.asistente_id;
+    
+    -- DIM_Entrada
+    PRINT 'Cargando DIM_Entrada...';
+    
+    INSERT INTO DIM_Entrada (
+        tipo_entrada_id, nombre, descripcion, precio_base, es_abono, metodo_pago
+    )
+    SELECT 
+        te.tipo_entrada_id,
+        te.nombre,
+        te.descripcion,
+        te.precio_base,
+        0, -- No es abono
+        NULL -- El método de pago se reflejará en cada venta
+    FROM Festival_Final_OLTP.dbo.Tipo_Entrada te
+    UNION
+    SELECT 
+        1000 + ROW_NUMBER() OVER (ORDER BY tipo_abono), -- Asignamos IDs a partir de 1000 para los abonos
+        tipo_abono,
+        'Abono: ' + tipo_abono,
+        precio,
+        1, -- Es abono
+        NULL
+    FROM Festival_Final_OLTP.dbo.Abono
+    GROUP BY tipo_abono, precio; -- Agrupamos para evitar duplicados
+    
+    -- DIM_Evento
+    PRINT 'Cargando DIM_Evento...';
+    
+    -- Usamos CTEs para mejor manejo de los tipos de datos
+    WITH EventosParalelos AS (
+        SELECT 
+            ep.evento_id,
+            CAST(ep.nombre AS NVARCHAR(200)) AS nombre_evento,
+            CAST(ep.tipo AS NVARCHAR(100)) AS tipo_evento,
+            CAST(ep.descripcion AS NVARCHAR(MAX)) AS descripcion,
+            CAST(ep.ubicacion AS NVARCHAR(200)) AS ubicacion,
+            ep.aforo_maximo,
+            ep.requiere_inscripcion
+        FROM Festival_Final_OLTP.dbo.Evento_Paralelo ep
+    ),
+    Proyecciones AS (
+        SELECT 
+            10000 + pr.proyeccion_id AS evento_id,
+            CAST(p.titulo + ' (Proyección)' AS NVARCHAR(200)) AS nombre_evento,
+            CAST('Proyección' AS NVARCHAR(100)) AS tipo_evento,
+            CAST(p.sinopsis AS NVARCHAR(MAX)) AS descripcion,
+            CAST(s.nombre + ', ' + s.ubicacion AS NVARCHAR(200)) AS ubicacion,
+            s.capacidad AS aforo_maximo,
+            0 AS requiere_inscripcion
+        FROM Festival_Final_OLTP.dbo.Proyeccion pr
+        JOIN Festival_Final_OLTP.dbo.Pelicula p ON pr.pelicula_id = p.pelicula_id
+        JOIN Festival_Final_OLTP.dbo.Sala s ON pr.sala_id = s.sala_id
+    )
+    INSERT INTO DIM_Evento (
+        evento_id, nombre_evento, tipo_evento, descripcion, ubicacion, 
+        aforo_maximo, requiere_inscripcion
+    )
+    SELECT * FROM EventosParalelos
+    UNION ALL
+    SELECT * FROM Proyecciones;
+            
+    -- DIM_Jurado
+    PRINT 'Cargando DIM_Jurado...';
+    
+    INSERT INTO DIM_Jurado (
+        jurado_id, nombre_jurado, edicion_anio, categorias_evaluacion, miembros
+    )
+    SELECT 
+        j.jurado_id,
+        j.nombre,
+        ef.anio,
+        STUFF((SELECT ', ' + cc.nombre 
+               FROM Festival_Final_OLTP.dbo.Jurado_Categoria jc 
+               JOIN Festival_Final_OLTP.dbo.Categoria_Competicion cc ON jc.categoria_id = cc.categoria_id 
+               WHERE jc.jurado_id = j.jurado_id 
+               FOR XML PATH('')), 1, 2, ''),
+        STUFF((SELECT ', ' + p.nombre + ' ' + p.apellidos + ' (' + mj.cargo + ')' 
+               FROM Festival_Final_OLTP.dbo.Miembro_Jurado mj 
+               JOIN Festival_Final_OLTP.dbo.Persona p ON mj.persona_id = p.persona_id 
+               WHERE mj.jurado_id = j.jurado_id 
+               FOR XML PATH('')), 1, 2, '')
+    FROM Festival_Final_OLTP.dbo.Jurado j
+    JOIN Festival_Final_OLTP.dbo.Edicion_Festival ef ON j.edicion_festival = ef.edicion_id;
+    
+    -- DIM_Patrocinador
+    PRINT 'Cargando DIM_Patrocinador...';
+    
+    INSERT INTO DIM_Patrocinador (
+        patrocinador_id, nombre, contacto_principal, tipo, pais, 
+        sector_industria, es_recurrente, categorias_patrocinio
+    )
+    SELECT 
+        p.patrocinador_id,
+        p.nombre,
+        p.contacto_principal,
+        p.tipo,
+        p.pais,
+        p.sector_industria,
+        CASE WHEN COUNT(DISTINCT pa.edicion_festival) > 1 THEN 1 ELSE 0 END,
+        STUFF((SELECT ', ' + pa.tipo_aportacion 
+               FROM Festival_Final_OLTP.dbo.Patrocinio pa 
+               WHERE pa.patrocinador_id = p.patrocinador_id 
+               GROUP BY pa.tipo_aportacion
+               FOR XML PATH('')), 1, 2, '')
+    FROM Festival_Final_OLTP.dbo.Patrocinador p
+    LEFT JOIN Festival_Final_OLTP.dbo.Patrocinio pa ON p.patrocinador_id = pa.patrocinador_id
+    GROUP BY p.patrocinador_id, p.nombre, p.contacto_principal, p.tipo, p.pais, p.sector_industria;
+    
+    -- 4. AHORA CARGAMOS LAS TABLAS DE HECHOS
     
     -- FACT_Proyecciones
     PRINT 'Cargando FACT_Proyecciones...';
-    TRUNCATE TABLE FACT_Proyecciones;
     
     INSERT INTO FACT_Proyecciones (
         proyeccion_id, tiempo_id, pelicula_id, sala_id, edicion_id, duracion_proyeccion,
@@ -486,7 +466,6 @@ SELECT * FROM Proyecciones;
     
     -- FACT_Ventas_Entradas
     PRINT 'Cargando FACT_Ventas_Entradas...';
-    TRUNCATE TABLE FACT_Ventas_Entradas;
     
     -- Primero obtenemos el mapping de metodo_pago a metodo_pago_id
     CREATE TABLE #MetodoPagoMapping (
@@ -537,7 +516,6 @@ SELECT * FROM Proyecciones;
     
     -- FACT_Evaluaciones_Jurado
     PRINT 'Cargando FACT_Evaluaciones_Jurado...';
-    TRUNCATE TABLE FACT_Evaluaciones_Jurado;
     
     INSERT INTO FACT_Evaluaciones_Jurado (
         evaluacion_id, pelicula_id, jurado_id, persona_id, categoria_id,
@@ -561,7 +539,6 @@ SELECT * FROM Proyecciones;
     
     -- FACT_Premios
     PRINT 'Cargando FACT_Premios...';
-    TRUNCATE TABLE FACT_Premios;
     
     INSERT INTO FACT_Premios (
         premio_id, pelicula_id, categoria_id, jurado_id, edicion_id,
@@ -588,7 +565,6 @@ SELECT * FROM Proyecciones;
     
     -- FACT_Eventos_Paralelos
     PRINT 'Cargando FACT_Eventos_Paralelos...';
-    TRUNCATE TABLE FACT_Eventos_Paralelos;
     
     -- Primero insertamos los eventos con inscripciones de asistentes
     INSERT INTO FACT_Eventos_Paralelos (
@@ -612,7 +588,6 @@ SELECT * FROM Proyecciones;
     
     -- FACT_Patrocinios
     PRINT 'Cargando FACT_Patrocinios...';
-    TRUNCATE TABLE FACT_Patrocinios;
     
     INSERT INTO FACT_Patrocinios (
         patrocinio_id, patrocinador_id, edicion_id, tiempo_id,
@@ -638,7 +613,6 @@ SELECT * FROM Proyecciones;
     
     -- FACT_Alojamientos
     PRINT 'Cargando FACT_Alojamientos...';
-    TRUNCATE TABLE FACT_Alojamientos;
     
     INSERT INTO FACT_Alojamientos (
         reserva_id, persona_id, edicion_id, tiempo_entrada_id, tiempo_salida_id,
@@ -666,7 +640,6 @@ SELECT * FROM Proyecciones;
     
     -- FACT_Traslados
     PRINT 'Cargando FACT_Traslados...';
-    TRUNCATE TABLE FACT_Traslados;
     
     INSERT INTO FACT_Traslados (
         traslado_id, persona_id, edicion_id, tiempo_id,
@@ -695,7 +668,6 @@ SELECT * FROM Proyecciones;
     
     -- FACT_Gastos_Festival
     PRINT 'Cargando FACT_Gastos_Festival...';
-    TRUNCATE TABLE FACT_Gastos_Festival;
     
     INSERT INTO FACT_Gastos_Festival (
         gasto_id, edicion_id, tiempo_id, categoria_gasto_id,
@@ -723,6 +695,10 @@ SELECT * FROM Proyecciones;
     -- Limpieza de tablas temporales
     DROP TABLE #MetodoPagoMapping;
     DROP TABLE #GeografiaMapping;
+    
+    -- Reactivar restricciones de clave foránea
+    PRINT 'Reactivando restricciones de clave foránea...';
+    EXEC sp_MSforeachtable "ALTER TABLE ? CHECK CONSTRAINT ALL";
     
     COMMIT TRANSACTION;
     PRINT 'ETL process completed successfully.';
