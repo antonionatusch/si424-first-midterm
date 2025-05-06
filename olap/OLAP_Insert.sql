@@ -107,7 +107,9 @@ FROM (
     FROM OLTP_Claude.dbo.Premio_Otorgado
 ) AS fechas
 WHERE tiempo_id NOT IN (SELECT tiempo_id FROM DIM_Tiempo);
-GOINSERT INTO FACT_Patrocinios (
+GO
+
+INSERT INTO FACT_Patrocinios (
     patrocinio_id,
     patrocinador_id,
     edicion_id,
