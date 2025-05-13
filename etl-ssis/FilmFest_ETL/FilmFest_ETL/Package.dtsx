@@ -12,11 +12,23 @@
   DTS:ObjectName="Package"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="32"
-  DTS:VersionGUID="{E735896C-7BEE-4682-AB20-66B92A0EAD55}">
+  DTS:VersionBuild="43"
+  DTS:VersionGUID="{C7B9196D-E556-461E-8507-D19F9DE78310}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Festival_Final_OLAP]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{32EF7001-9124-4C43-B0B9-F2AED0254A53}"
+      DTS:ObjectName="localhost.Festival_Final_OLAP">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Festival_Final_OLAP;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{32EF7001-9124-4C43-B0B9-F2AED0254A53}localhost.Festival_Final_OLAP;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost.Festival_Final_OLAP.sa]"
       DTS:CreationName="OLEDB"
@@ -29,35 +41,35 @@
           DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=Festival_Final_OLAP;Provider=SQLOLEDB.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{8F38B044-424D-47E8-BBA4-84E16A0807E0}localhost.Festival_Final_OLAP.sa;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="HRXRRVY4614="
-            IV="mk63A1m6TD1KFXgyUsSkjg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="9HvhgsfKjEM="
+            IV="kZbZwlmUNBEib9qgL8DeJA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>mk63A1m6TD1KFXgyUsSkjq4R5fagUjje+IHE8tqvrwbC+rzmOeBIG3mTp2FYi7XxyWz3spE3q50P69w2Fk6UjsOODxYJK4aLUjQ37Xil0aILHt9JGwz8yRB/z/3HhmsGEKg8u1vRnuzBiINDfxhai0XkWft5eD4EJoOSMffo4X5x+MwJkAc7GOR8I2TTV521</CipherValue>
+              <CipherValue>kZbZwlmUNBEib9qgL8DeJPFlRjTNU+QPJ2VjbBUIvBbzyGcfQPPhPkD5nghogCaSmiBPCDdBNkQ3SFvTqvRZDCupMnkn1iGqawmuUQSFG6eOyitbBh4b/0TmdOX7MtrwGEAJn1yVc3Pi5cNR9mGUC2Oe/NRPyh9ivDtJ6jBsWSDnd+7Z3wLkbUySw7MSaUcm</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[localhost.Festival_Final_OLAP_From_SSIS.sa]"
+      DTS:refId="Package.ConnectionManagers[localhost.Festival_Final_OLAP.sa 1]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{03E14681-4A97-476C-8441-16763F228289}"
-      DTS:ObjectName="localhost.Festival_Final_OLAP_From_SSIS.sa">
+      DTS:DTSID="{C6C80FF6-698D-459F-8226-75A284B1FCA7}"
+      DTS:ObjectName="localhost.Festival_Final_OLAP.sa 1">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=Festival_Final_OLAP_From_SSIS;Provider=SQLOLEDB.1;Persist Security Info=True;Application Name=SSIS-Package-{03E14681-4A97-476C-8441-16763F228289}localhost.Festival_Final_OLAP_From_SSIS.sa;Auto Translate=False;">
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=Festival_Final_OLAP;Provider=SQLOLEDB.1;Persist Security Info=True;Application Name=SSIS-Package-{C6C80FF6-698D-459F-8226-75A284B1FCA7}localhost.Festival_Final_OLAP.sa 1;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="mDxd+jbpW78="
-            IV="MX7OB4VhwHKqVUl2vYSBJA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="dwzxeGIxM5I="
+            IV="dUIgNa/yhg6Qk0Xog/hHNg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>MX7OB4VhwHKqVUl2vYSBJIpcUMQcjOv5jNEiCoUnjRFCNYe/h9c2Zz8OqxH2oSYhdNGmJlAkOqOV9OXMgN7/yiO2XciXmxMmtI+km0dpCopl1pTGtIdXAFIaQFDPPXegGqeHbs2vtm8bKuh79jORJUka6Do9FYeVfZ5hatwZSSgcEqRuZFRKnplYc3ZvTj5E</CipherValue>
+              <CipherValue>dUIgNa/yhg6Qk0Xog/hHNrXyEHmVHPjA7klBrOY2o6/qWz3axtbUl5VGtrv2EErzs9hlvPxLWqu4DiSPXb2p8u37CExakNOtjyR0kPosPiDNP7S6lF2VBfIWGUyrTLs9SfoJOiLWjlVd352w8O+VriMphsuAJFsLVbg5ciAG6eGpogHfh0JZittPA9OxaKmq</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -75,12 +87,12 @@
           DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=Festival_Final_OLTP;Provider=SQLOLEDB.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{B2FB9798-0E73-4877-B205-CD5396EE71E7}localhost.Festival_Final_OLTP.sa;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="1aQ1xhBrql0="
-            IV="38l/75cxyFKlBLR44xshMw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="Ep2tXtudv5U="
+            IV="D431n8Hm27eK0l+iJ5B4uw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>38l/75cxyFKlBLR44xshM9nxT8nRSO+7Injf9Ohy3aTl7fLViP1eFlTw9AY6Xh07B+64dafDrA7sQp70ATGGjiOKpLS3wOjx3k2V14GfFQj7Xlp2p08W6G+/IUmxSGwO8WxR5bhCr56lKVASKZLQA+qtHQtLAgxd8SiaT3rBbELHZkBoHd9bxOZ1+DxTyscC</CipherValue>
+              <CipherValue>D431n8Hm27eK0l+iJ5B4u5G8sDVfDMw9TZK87EroEl0lDNWPEATtEhq3qEWG2ct+p6JutXhkiL8zWUZiBF0so9HPFRSAel1sYR0fcVfDinIlyrsiCKWqf2gYQBac0O1VFRiHc3UUkLschhnXBh4rKeSy4fN4xm3Tn5E5Uvwq1j3aKmK+IZZcxIOJjeDuHz/c</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -101,467 +113,35 @@
       <DTS:Executables>
         <DTS:Executable
           DTS:refId="Package\Sequence Container\Load Dimensions"
-          DTS:CreationName="Microsoft.Pipeline"
-          DTS:Description="Data Flow Task"
-          DTS:DTSID="{7CEA5C25-C8D5-4C04-A173-827ED4F05BBF}"
-          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{11DBA1A6-E8EB-4025-8A23-72364203A124}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Load Dimensions"
-          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
-            <pipeline
-              version="1">
-              <components>
-                <component
-                  refId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion"
-                  componentClassID="Microsoft.OLEDBDestination"
-                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-                  description="OLE DB Destination"
-                  name="Load into DIM_Edicion"
-                  usesDispositions="true"
-                  version="4">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[DIM_Edicion]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">3</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepIdentity">true</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepNulls">false</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                      name="FastLoadMaxInsertCommitSize">2147483647</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[localhost.Festival_Final_OLAP_From_SSIS.sa]"
-                      connectionManagerRefId="Package.ConnectionManagers[localhost.Festival_Final_OLAP_From_SSIS.sa]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <inputs>
-                    <input
-                      refId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Inputs[OLE DB Destination Input]"
-                      errorOrTruncationOperation="Insert"
-                      errorRowDisposition="FailComponent"
-                      hasSideEffects="true"
-                      name="OLE DB Destination Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Inputs[OLE DB Destination Input].Columns[edicion_id]"
-                          cachedDataType="i4"
-                          cachedName="edicion_id"
-                          externalMetadataColumnId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Inputs[OLE DB Destination Input].ExternalColumns[edicion_id]"
-                          lineageId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].Columns[edicion_id]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Inputs[OLE DB Destination Input].Columns[anio]"
-                          cachedDataType="i4"
-                          cachedName="anio"
-                          externalMetadataColumnId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Inputs[OLE DB Destination Input].ExternalColumns[anio]"
-                          lineageId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].Columns[anio]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Inputs[OLE DB Destination Input].Columns[tema]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="200"
-                          cachedName="tema"
-                          externalMetadataColumnId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Inputs[OLE DB Destination Input].ExternalColumns[tema]"
-                          lineageId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].Columns[tema]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Inputs[OLE DB Destination Input].Columns[director_festival]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="200"
-                          cachedName="director_festival"
-                          externalMetadataColumnId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Inputs[OLE DB Destination Input].ExternalColumns[director_festival]"
-                          lineageId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].Columns[director_festival]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Inputs[OLE DB Destination Input].Columns[fecha_inicio]"
-                          cachedDataType="wstr"
-                          cachedLength="10"
-                          cachedName="fecha_inicio"
-                          externalMetadataColumnId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Inputs[OLE DB Destination Input].ExternalColumns[fecha_inicio]"
-                          lineageId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].Columns[fecha_inicio]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Inputs[OLE DB Destination Input].Columns[fecha_fin]"
-                          cachedDataType="wstr"
-                          cachedLength="10"
-                          cachedName="fecha_fin"
-                          externalMetadataColumnId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Inputs[OLE DB Destination Input].ExternalColumns[fecha_fin]"
-                          lineageId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].Columns[fecha_fin]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Inputs[OLE DB Destination Input].Columns[duracion_dias]"
-                          cachedDataType="i4"
-                          cachedName="duracion_dias"
-                          externalMetadataColumnId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Inputs[OLE DB Destination Input].ExternalColumns[duracion_dias]"
-                          lineageId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].Columns[duracion_dias]" />
-                      </inputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Inputs[OLE DB Destination Input].ExternalColumns[edicion_id]"
-                          dataType="i4"
-                          name="edicion_id" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Inputs[OLE DB Destination Input].ExternalColumns[anio]"
-                          dataType="i4"
-                          name="anio" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Inputs[OLE DB Destination Input].ExternalColumns[tema]"
-                          codePage="1252"
-                          dataType="str"
-                          length="200"
-                          name="tema" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Inputs[OLE DB Destination Input].ExternalColumns[director_festival]"
-                          codePage="1252"
-                          dataType="str"
-                          length="200"
-                          name="director_festival" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Inputs[OLE DB Destination Input].ExternalColumns[fecha_inicio]"
-                          dataType="wstr"
-                          length="10"
-                          name="fecha_inicio" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Inputs[OLE DB Destination Input].ExternalColumns[fecha_fin]"
-                          dataType="wstr"
-                          length="10"
-                          name="fecha_fin" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Inputs[OLE DB Destination Input].ExternalColumns[duracion_dias]"
-                          dataType="i4"
-                          name="duracion_dias" />
-                      </externalMetadataColumns>
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Outputs[OLE DB Destination Error Output]"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Inputs[OLE DB Destination Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP"
-                  componentClassID="Microsoft.OLEDBSource"
-                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-                  description="OLE DB Source"
-                  name="Select Edicion_Festival from OLTP"
-                  usesDispositions="true"
-                  version="7">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[Alojamiento]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
-    ef.edicion_id,
-    ef.anio,
-    ef.tema,
-    ef.director_festival,
-    ef.fecha_inicio,
-    ef.fecha_fin,
-    DATEDIFF(DAY, ef.fecha_inicio, ef.fecha_fin)+1 AS duracion_dias
-FROM Festival_Final_OLTP.dbo.Edicion_Festival ef;</property>
-                    <property
-                      dataType="System.String"
-                      description="The variable that contains the SQL command to be executed."
-                      name="SqlCommandVariable"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">2</property>
-                    <property
-                      dataType="System.String"
-                      description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping"></property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[localhost.Festival_Final_OLTP.sa]"
-                      connectionManagerRefId="Package.ConnectionManagers[localhost.Festival_Final_OLTP.sa]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <outputs>
-                    <output
-                      refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output]"
-                      name="OLE DB Source Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].Columns[edicion_id]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].ExternalColumns[edicion_id]"
-                          lineageId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].Columns[edicion_id]"
-                          name="edicion_id"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].Columns[anio]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].ExternalColumns[anio]"
-                          lineageId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].Columns[anio]"
-                          name="anio"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].Columns[tema]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].ExternalColumns[tema]"
-                          length="200"
-                          lineageId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].Columns[tema]"
-                          name="tema"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].Columns[director_festival]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].ExternalColumns[director_festival]"
-                          length="200"
-                          lineageId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].Columns[director_festival]"
-                          name="director_festival"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].Columns[fecha_inicio]"
-                          dataType="wstr"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].ExternalColumns[fecha_inicio]"
-                          length="10"
-                          lineageId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].Columns[fecha_inicio]"
-                          name="fecha_inicio"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].Columns[fecha_fin]"
-                          dataType="wstr"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].ExternalColumns[fecha_fin]"
-                          length="10"
-                          lineageId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].Columns[fecha_fin]"
-                          name="fecha_fin"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].Columns[duracion_dias]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].ExternalColumns[duracion_dias]"
-                          lineageId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].Columns[duracion_dias]"
-                          name="duracion_dias"
-                          truncationRowDisposition="FailComponent" />
-                      </outputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].ExternalColumns[edicion_id]"
-                          dataType="i4"
-                          name="edicion_id" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].ExternalColumns[anio]"
-                          dataType="i4"
-                          name="anio" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].ExternalColumns[tema]"
-                          codePage="1252"
-                          dataType="str"
-                          length="200"
-                          name="tema" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].ExternalColumns[director_festival]"
-                          codePage="1252"
-                          dataType="str"
-                          length="200"
-                          name="director_festival" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].ExternalColumns[fecha_inicio]"
-                          dataType="wstr"
-                          length="10"
-                          name="fecha_inicio" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].ExternalColumns[fecha_fin]"
-                          dataType="wstr"
-                          length="10"
-                          name="fecha_fin" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output].ExternalColumns[duracion_dias]"
-                          dataType="i4"
-                          name="duracion_dias" />
-                      </externalMetadataColumns>
-                    </output>
-                    <output
-                      refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Error Output]"
-                      isErrorOut="true"
-                      name="OLE DB Source Error Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Error Output].Columns[edicion_id]"
-                          dataType="i4"
-                          lineageId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Error Output].Columns[edicion_id]"
-                          name="edicion_id" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Error Output].Columns[anio]"
-                          dataType="i4"
-                          lineageId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Error Output].Columns[anio]"
-                          name="anio" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Error Output].Columns[tema]"
-                          codePage="1252"
-                          dataType="str"
-                          length="200"
-                          lineageId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Error Output].Columns[tema]"
-                          name="tema" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Error Output].Columns[director_festival]"
-                          codePage="1252"
-                          dataType="str"
-                          length="200"
-                          lineageId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Error Output].Columns[director_festival]"
-                          name="director_festival" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Error Output].Columns[fecha_inicio]"
-                          dataType="wstr"
-                          length="10"
-                          lineageId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Error Output].Columns[fecha_inicio]"
-                          name="fecha_inicio" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Error Output].Columns[fecha_fin]"
-                          dataType="wstr"
-                          length="10"
-                          lineageId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Error Output].Columns[fecha_fin]"
-                          name="fecha_fin" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Error Output].Columns[duracion_dias]"
-                          dataType="i4"
-                          lineageId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Error Output].Columns[duracion_dias]"
-                          name="duracion_dias" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-              </components>
-              <paths>
-                <path
-                  refId="Package\Sequence Container\Load Dimensions.Paths[OLE DB Source Output]"
-                  endId="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion.Inputs[OLE DB Destination Input]"
-                  name="OLE DB Source Output"
-                  startId="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP.Outputs[OLE DB Source Output]" />
-              </paths>
-            </pipeline>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{32EF7001-9124-4C43-B0B9-F2AED0254A53}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="dbo.usp_LoadDimensions" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
           DTS:refId="Package\Sequence Container\Load Facts"
-          DTS:CreationName="Microsoft.Pipeline"
-          DTS:Description="Data Flow Task"
-          DTS:DTSID="{E5BB96ED-6CDE-4A8E-AE74-8056CA5CD4AF}"
-          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{09702952-6CB6-4086-BA6B-7EAF67C71256}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Load Facts"
-          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
-            <pipeline
-              version="1" />
+            <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -569,7 +149,7 @@ FROM Festival_Final_OLTP.dbo.Edicion_Festival ef;</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{7F2FD50D-8638-4DD8-B8F9-11F91C8275F4}"
+          DTS:DTSID="{A76B3F6E-6FAD-4882-BC15-E5344092C4BB}"
           DTS:From="Package\Sequence Container\Load Dimensions"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -592,25 +172,25 @@ FROM Festival_Final_OLTP.dbo.Edicion_Festival ef;</property>
         <NodeLayout
           Size="159,42"
           Id="Package\Sequence Container\Load Dimensions"
-          TopLeft="104,29.3333333333333" />
+          TopLeft="105,29" />
         <NodeLayout
           Size="129,42"
           Id="Package\Sequence Container\Load Facts"
-          TopLeft="120.333333333333,115.5" />
+          TopLeft="123,113" />
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
-          TopLeft="184.166666666667,71.3333333333333">
+          TopLeft="186,71">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,44.1666666666667"
+              EndConnector="0,42"
               Start="0,0"
-              End="0,36.6666666666667">
+              End="0,34.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36.6666666666667" />
+                    End="0,34.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -622,88 +202,12 @@ FROM Festival_Final_OLTP.dbo.Edicion_Festival ef;</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="335,213"
-          Size="335,256"
+          PanelSize="345,235"
+          Size="345,278"
           Id="Package\Sequence Container"
           TopLeft="126,72" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <TaskHost
-    design-time-name="Package\Sequence Container\Load Dimensions">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="239,42"
-          Id="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP"
-          TopLeft="203,199" />
-        <NodeLayout
-          Size="185,42"
-          Id="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion"
-          TopLeft="197,282" />
-        <EdgeLayout
-          Id="Package\Sequence Container\Load Dimensions.Paths[OLE DB Source Output]"
-          TopLeft="322.5,241">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-33,41"
-              Start="0,0"
-              End="-33,33.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.5"
-                    Point2="0,20.5"
-                    Point3="-4,20.5" />
-                  <mssgle:LineSegment
-                    End="-29,20.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-29,20.5"
-                    Point2="-33,20.5"
-                    Point3="-33,24.5" />
-                  <mssgle:LineSegment
-                    End="-33,33.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Load Dimensions\Select Edicion_Festival from OLTP">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Load Dimensions\Load into DIM_Edicion">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
