@@ -1,6 +1,6 @@
 USE Festival_Final_OLAP;
 GO
-
+/*
 -- Primero eliminamos las tablas de hechos (que referencian a otras tablas)
 PRINT 'Eliminando tablas de hechos...';
 
@@ -84,7 +84,7 @@ IF OBJECT_ID('DIM_Tiempo', 'U') IS NOT NULL
 
 PRINT 'Todas las tablas han sido eliminadas con éxito.';
 GO
-
+*/
 
 PRINT '===== VERIFICACIÓN DE TABLAS DE DIMENSIONES =====';
 
