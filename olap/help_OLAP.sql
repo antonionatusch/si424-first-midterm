@@ -1,5 +1,8 @@
 USE Festival_Final_OLAP;
 GO
+-- This block is used to reset the database schema by dropping all fact and dimension tables.
+-- It is currently disabled to prevent accidental execution. Re-enable this block only during
+-- development or testing when a full schema reset is required.
 /*
 -- Primero eliminamos las tablas de hechos (que referencian a otras tablas)
 PRINT 'Eliminando tablas de hechos...';
