@@ -12,8 +12,8 @@
   DTS:ObjectName="Package"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="65"
-  DTS:VersionGUID="{84B0A76C-2281-45E5-B8BE-2E36CF82B33F}">
+  DTS:VersionBuild="66"
+  DTS:VersionGUID="{865BA4AF-6DBC-41E0-B9D4-741DA388D246}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -41,12 +41,12 @@
           DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=Festival_Final_OLAP;Provider=SQLOLEDB.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{8F38B044-424D-47E8-BBA4-84E16A0807E0}localhost.Festival_Final_OLAP.sa;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="DigoWk9foJU="
-            IV="EP0SM1YRDkpQynpC3lL5nA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="2MBT22XGvoM="
+            IV="ZmIVWhnqzu8lQTPJw6Ojkw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>EP0SM1YRDkpQynpC3lL5nFftUziT2ea5q2YUuekOWlT8BIXqDdHiHVY6pigFoYglVJV6RY+de+OtEAxZKd5+HZaTvJczsoUd6LrnHujdSV0u0mn6jBcBkZkXwMuaGixpv1E/D1uacKR7QZMQXY/vKFYN4Xk7N32hua/Dmi+lsh0BJDH9BGTLo33TPsEr5dN5</CipherValue>
+              <CipherValue>ZmIVWhnqzu8lQTPJw6Ojk1eMe9iPOGbxdE2KbB11SMRcMNNUSvRw6yPIE7AXzfiHssmHGvl5o3EKDj2RvxjLqiCVhiK+FPyRCePOnK0h0hMo2r7zJAnNh/6HVJp3jt837zEN9v0aO+lPtmw/7z9rFEe6e0vsuPAwteixktAHz61Z12YLa1JvNxehSZPbK0bo</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -64,12 +64,12 @@
           DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=Festival_Final_OLAP;Provider=SQLOLEDB.1;Persist Security Info=True;Application Name=SSIS-Package-{C6C80FF6-698D-459F-8226-75A284B1FCA7}localhost.Festival_Final_OLAP.sa 1;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="Mh072Jpgquk="
-            IV="MkxuuIkYQaG+ZSbn10eXxA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="tvK7e2v7CHQ="
+            IV="9m+rWiROAPqJsF2X82pDgw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>MkxuuIkYQaG+ZSbn10eXxGokYNMSc69wNsQQ0+bT+hkj+cDvjcpFQyFDFzSn4qfbOV6EZxMvRKMVvheRx1x2bG6pbXcsk3kkCGX4LXaViNoWl4WXBIaK7MQFqHsjoL07C1TBwMPpVckDM+VBk1MrYnnPSAv1DqD6USh0fy4jNEoTFQdcGoLtvKnQUWP13pyv</CipherValue>
+              <CipherValue>9m+rWiROAPqJsF2X82pDg6lmZ9+CD5m2eKuhKNWbgp1ewWAFIwqln+WRwjQuoWIrHfvFWFXkT0D3OHvpc3+fU9B/imr9kubsys4umb01S3SShhpLWhBL+stzdM05IDUb1MZCDCnSUEVRF2nhMEC9Mnk3IcCR0s98nnf3WBh2qPi/wl+4MzA4wiTs7OlaEUZx</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -87,12 +87,12 @@
           DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=Festival_Final_OLTP;Provider=SQLOLEDB.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{B2FB9798-0E73-4877-B205-CD5396EE71E7}localhost.Festival_Final_OLTP.sa;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="ciIiQj2V8rM="
-            IV="Gz4slU9QwvnWVY2UbO9VzQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="p7THGCI9zso="
+            IV="sgmW0q0CVd2O23h20NU6ZA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>Gz4slU9QwvnWVY2UbO9VzczNenI3lIFHvupPC4zGltoG4aaou+Jkp2uf209rYxcO7qeEIhfzmdxPipYVnny6symcb77ULhIdShoHkZ1kJcBzKDqJNewGunsvX5E6SCo/EQuQhHXuHN6QckVenwDWiebB7nlGPsKulGkg/ZeSxYLThqV4rKD0PO/My69oNlCr</CipherValue>
+              <CipherValue>sgmW0q0CVd2O23h20NU6ZHII/Mn+1PVSFlq5HUI98RukUdINDtuJFLfirijKsPpMVnIT5njtpZLMnsRBcGWZhI3hkVYgNWJ35zaT6duckoowt4LEwxACIrdb6Pc2/m2LXMobqxnm+cI1HaSJ7lKC8OmhaKT/xv5apWs6Dob0UEETx8Bur6ra+H89rHDrN63e</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -197,6 +197,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{32EF7001-9124-4C43-B0B9-F2AED0254A53}"
+              SQLTask:IsStoredProc="True"
               SQLTask:BypassPrepare="False"
               SQLTask:SqlStatementSource="dbo.usp_LoadFacts" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
@@ -279,6 +280,18 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="162,42"
+          Id="Package\Clean DIM Tables"
+          TopLeft="155,85" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Disable FK Restrictions"
+          TopLeft="516,4" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Enable FKs"
+          TopLeft="547,582" />
+        <NodeLayout
           Size="159,42"
           Id="Package\Sequence Container\Load Dimensions"
           TopLeft="104,109" />
@@ -328,55 +341,9 @@
           Id="Package\Sequence Container"
           TopLeft="338.5,194.5" />
         <NodeLayout
-          Size="186,42"
-          Id="Package\Disable FK Restrictions"
-          TopLeft="516,4" />
-        <NodeLayout
           Size="155,42"
           Id="Package\Truncate FACT Tables"
           TopLeft="548.5,117.5" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Enable FKs"
-          TopLeft="547,582" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="564,539.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="48,42.5000000000001"
-              Start="0,0"
-              End="48,35.0000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.2500000000001" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.2500000000001"
-                    Point2="0,21.2500000000001"
-                    Point3="4,21.2500000000001" />
-                  <mssgle:LineSegment
-                    End="44,21.2500000000001" />
-                  <mssgle:CubicBezierSegment
-                    Point1="44,21.2500000000001"
-                    Point2="48,21.2500000000001"
-                    Point3="48,25.2500000000001" />
-                  <mssgle:LineSegment
-                    End="48,35.0000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="162,42"
-          Id="Package\Clean DIM Tables"
-          TopLeft="155,85" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="609,46">
@@ -437,6 +404,40 @@
                     Point3="-119.75,-32.5" />
                   <mssgle:LineSegment
                     End="-224,-32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="564,539.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="48,42.5000000000001"
+              Start="0,0"
+              End="48,35.0000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.2500000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.2500000000001"
+                    Point2="0,21.2500000000001"
+                    Point3="4,21.2500000000001" />
+                  <mssgle:LineSegment
+                    End="44,21.2500000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="44,21.2500000000001"
+                    Point2="48,21.2500000000001"
+                    Point3="48,25.2500000000001" />
+                  <mssgle:LineSegment
+                    End="48,35.0000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
