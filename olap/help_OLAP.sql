@@ -4,6 +4,8 @@ GO
 -- Primero eliminamos las tablas de hechos (que referencian a otras tablas)
 PRINT 'Eliminando tablas de hechos...';
 
+-- TRUNCATE TABLE DIM_Edicion
+
 -- Desactivar temporalmente la verificación de claves foráneas para facilitar el borrado
 PRINT 'Desactivando verificación de claves foráneas...';
 EXEC sp_MSforeachtable "ALTER TABLE ? NOCHECK CONSTRAINT ALL";
