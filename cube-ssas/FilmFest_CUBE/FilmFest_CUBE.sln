@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "FilmFest_CUBE", "FilmFest_CUBE\FilmFest_CUBE.dwproj", "{010ADF2A-7A41-9D80-E4EE-CD6DF5AD1DBB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{010ADF2A-7A41-9D80-E4EE-CD6DF5AD1DBB}.Development|Default.ActiveCfg = Development
+		{010ADF2A-7A41-9D80-E4EE-CD6DF5AD1DBB}.Development|Default.Build.0 = Development
+		{010ADF2A-7A41-9D80-E4EE-CD6DF5AD1DBB}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {15D047E0-636D-400D-84C3-69D9301F33BA}
+	EndGlobalSection
+EndGlobal
