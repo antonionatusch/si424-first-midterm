@@ -3,6 +3,20 @@
     <Configuration>
       <Name>Development</Name>
       <Options>
+        <UserIDs>
+          <ConfigurationSetting>
+            <Id>Festival Final OLAP</Id>
+            <Name>Festival Final OLAP</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAM4he6T7Ml0W4jaxAzehABwAAAAAoAAAARgBlAHMAdABpAHYAYQBsACAARgBpAG4AYQBsACAATwBMAEEAUAAAABBmAAAAAQAAIAAAAB7qR2b4a9ikehsgGyiwmdQCck+M0Ru/t1xK4jyGSD0/AAAAAA6AAAAAAgAAIAAAAOEcA+ZFq17h56vhyuBREMiGDWZmf6KQwR4mP1ZqLKqVEAAAAN8D34MCMrLNAK2WOS/Rs/hAAAAAUAwbRm18ddUwdYtj8iV4WF8aAZXSVuhz6BSQxYBoXuGmQRa8XXAVOCnMPDWN2XAvNXoPh3RFU7ftmNixwOpkvw==</Value>
+          </ConfigurationSetting>
+        </UserIDs>
+        <UserPasswords>
+          <ConfigurationSetting>
+            <Id>Festival Final OLAP</Id>
+            <Name>Festival Final OLAP</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAM4he6T7Ml0W4jaxAzehABwAAAAAoAAAARgBlAHMAdABpAHYAYQBsACAARgBpAG4AYQBsACAATwBMAEEAUAAAABBmAAAAAQAAIAAAAFzz1cAUpLN3RKLhMeEsh9AQ3kU6W/w1mGBbind6jS6VAAAAAA6AAAAAAgAAIAAAAI+f2MezvpAmWAlzyd8OWmVg73LHRwxtz9zDPKy+dSbAIAAAAGS7OFzE0rC5RlmR3/D2SN02XTQCaJA7nTAGCnKj5Yg6QAAAAFNcnPbGS7+zlpp9F4tQdEZR5mxb37OhbHe/q6OtxGORQ/kevE6iRnUfEuiQF5iDN55vlZKtoXnwJzvqcy1UkKM=</Value>
+          </ConfigurationSetting>
+        </UserPasswords>
         <TargetServer>localhost</TargetServer>
         <TargetDatabase>FilmFest_CUBE</TargetDatabase>
         <StartObject>

@@ -6,10 +6,107 @@
     <Name>FilmFest_CUBE.database</Name>
     <FullPath>FilmFest_CUBE.database</FullPath>
   </Database>
+  <Cubes>
+    <ProjectItem>
+      <Name>CUBE_FestivalFinalOLAP.cube</Name>
+      <FullPath>CUBE_FestivalFinalOLAP.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>CUBE_FestivalFinalOLAP.partitions</Name>
+          <FullPath>CUBE_FestivalFinalOLAP.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+  </Cubes>
+  <Dimensions>
+    <ProjectItem>
+      <Name>DIM Tiempo.dim</Name>
+      <FullPath>DIM Tiempo.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM Geografia.dim</Name>
+      <FullPath>DIM Geografia.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM Edicion.dim</Name>
+      <FullPath>DIM Edicion.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM Persona.dim</Name>
+      <FullPath>DIM Persona.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM Jurado.dim</Name>
+      <FullPath>DIM Jurado.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM Categoria.dim</Name>
+      <FullPath>DIM Categoria.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM Pelicula.dim</Name>
+      <FullPath>DIM Pelicula.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM Asistente.dim</Name>
+      <FullPath>DIM Asistente.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM Evento.dim</Name>
+      <FullPath>DIM Evento.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM Categoria Gasto.dim</Name>
+      <FullPath>DIM Categoria Gasto.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM Patrocinador.dim</Name>
+      <FullPath>DIM Patrocinador.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM Entrada.dim</Name>
+      <FullPath>DIM Entrada.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM Metodo Pago.dim</Name>
+      <FullPath>DIM Metodo Pago.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM Sala.dim</Name>
+      <FullPath>DIM Sala.dim</FullPath>
+    </ProjectItem>
+  </Dimensions>
+  <DataSources>
+    <ProjectItem>
+      <Name>DS_FestivalFinalOLAP.ds</Name>
+      <FullPath>DS_FestivalFinalOLAP.ds</FullPath>
+    </ProjectItem>
+  </DataSources>
+  <DataSourceViews>
+    <ProjectItem>
+      <Name>DSV_FestivalFinalOLAP.dsv</Name>
+      <FullPath>DSV_FestivalFinalOLAP.dsv</FullPath>
+    </ProjectItem>
+  </DataSourceViews>
   <Configurations>
     <Configuration>
       <Name>Development</Name>
-      <Options />
+      <Options>
+        <ConnectionMappings>
+          <ConfigurationSetting>
+            <Id>Festival Final OLAP</Id>
+            <Name>Festival Final OLAP</Name>
+            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=ANTONIO;Persist Security Info=True;Password=;User ID=;Initial Catalog=Festival_Final_OLAP</Value>
+          </ConfigurationSetting>
+        </ConnectionMappings>
+        <ConnectionSecurityMappings>
+          <ConfigurationSetting>
+            <Id>Festival Final OLAP</Id>
+            <Name>Festival Final OLAP</Name>
+            <Value xsi:type="xsd:int">1</Value>
+          </ConfigurationSetting>
+        </ConnectionSecurityMappings>
+      </Options>
     </Configuration>
   </Configurations>
 </Project>
