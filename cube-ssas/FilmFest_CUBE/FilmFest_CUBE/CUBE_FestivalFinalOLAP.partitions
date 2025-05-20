@@ -1,0 +1,185 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="ec043433-e50a-4b0a-b3ab-ea7236238c68" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Festival Final OLAP</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>FACT Alojamientos</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="3769eea4-a337-4486-97ce-8e4b04dfd9f4">
+          <ID>FACT Alojamientos</ID>
+          <Name>FACT Alojamientos</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="283eb927-dbe9-4d7f-9afe-c693ce578838">
+            <DataSourceViewID>Festival Final OLAP</DataSourceViewID>
+            <TableID>dbo_FACT_Alojamientos</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>FACT Evaluaciones Jurado</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="4110e9d6-4f78-4139-8ea4-7da8ed1f79c9">
+          <ID>FACT Evaluaciones Jurado</ID>
+          <Name>FACT Evaluaciones Jurado</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="fd097f4a-95fa-4f52-a82f-f88de3951bc8">
+            <DataSourceViewID>Festival Final OLAP</DataSourceViewID>
+            <TableID>dbo_FACT_Evaluaciones_Jurado</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>FACT Eventos Paralelos</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="51fdc28d-8f1d-4958-8bec-f06cf6a1faa7">
+          <ID>FACT Eventos Paralelos</ID>
+          <Name>FACT Eventos Paralelos</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="5dfcee13-e7f2-4e51-afdd-3a583dcf9cdd">
+            <DataSourceViewID>Festival Final OLAP</DataSourceViewID>
+            <TableID>dbo_FACT_Eventos_Paralelos</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>FACT Gastos Festival</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="7c84b702-afd0-4284-892d-cc155bc4392c">
+          <ID>FACT Gastos Festival</ID>
+          <Name>FACT Gastos Festival</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="7aeab49b-259f-4211-b6e1-da4eac973aef">
+            <DataSourceViewID>Festival Final OLAP</DataSourceViewID>
+            <TableID>dbo_FACT_Gastos_Festival</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>FACT Patrocinios</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="36a079e7-ebd7-4383-b066-ae2a0963a131">
+          <ID>FACT Patrocinios</ID>
+          <Name>FACT Patrocinios</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="12861198-beee-4402-aff6-7acc640cfa12">
+            <DataSourceViewID>Festival Final OLAP</DataSourceViewID>
+            <TableID>dbo_FACT_Patrocinios</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>FACT Premios</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="0cb9febb-61ca-405d-af9b-44fe8782f466">
+          <ID>FACT Premios</ID>
+          <Name>FACT Premios</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="66f10437-d4d5-45bc-ab64-f3bc9673e0a3">
+            <DataSourceViewID>Festival Final OLAP</DataSourceViewID>
+            <TableID>dbo_FACT_Premios</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>FACT Traslados</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="144cc6df-5f89-4318-b3d4-9cd39ca6cd4f">
+          <ID>FACT Traslados</ID>
+          <Name>FACT Traslados</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="437a1674-86b1-44c7-a6f8-7634b57a7e48">
+            <DataSourceViewID>Festival Final OLAP</DataSourceViewID>
+            <TableID>dbo_FACT_Traslados</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>FACT Ventas Entradas</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="4e2f3d79-9c76-4b41-b3cd-2aca71724941">
+          <ID>FACT Ventas Entradas</ID>
+          <Name>FACT Ventas Entradas</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="7f3f9c4a-22a8-4667-ac79-17830b3557e5">
+            <DataSourceViewID>Festival Final OLAP</DataSourceViewID>
+            <TableID>dbo_FACT_Ventas_Entradas</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>FACT Proyecciones</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="f12f4ed6-b3e9-434a-9712-604c28f9d138">
+          <ID>FACT Proyecciones</ID>
+          <Name>FACT Proyecciones</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="9caeab41-2d76-48db-931c-d01b2e74da1d">
+            <DataSourceViewID>Festival Final OLAP</DataSourceViewID>
+            <TableID>dbo_FACT_Proyecciones</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>
