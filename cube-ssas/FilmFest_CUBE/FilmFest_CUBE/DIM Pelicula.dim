@@ -1,0 +1,340 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="02a04325-a8d0-49e9-ab9d-de9f5ca5f79b" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>DIM Pelicula</ID>
+  <Name>DIM Pelicula</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="2" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1832" scrolltop="-3309" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="8123" y="13309" backcolor="2039583" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="DIM_Pelicula" left="20" top="0" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="4419" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e00004311000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_DIM_Pelicula" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-1832</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-3309</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="6a9b766b-b91b-4231-ac4d-28bb87f9b770">
+    <DataSourceViewID>Festival Final OLAP</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="27ce239d-f783-419e-b4ac-6d310058efab">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="3d00adf7-a8ca-4cc3-88e8-862ebe2fd3cb">
+      <ID>Pelicula Id</ID>
+      <Name>Pelicula Id</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f7d13cec-727a-4b8c-9e78-404ed5a4d823">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a8799905-3236-438e-b28f-64a37985f3c9">
+            <TableID>dbo_DIM_Pelicula</TableID>
+            <ColumnID>pelicula_id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="c88b1b77-8872-4ef7-8f15-a86e7b29ec59">
+          <AttributeID>Titulo</AttributeID>
+          <Name>Titulo</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="26b223f9-0e63-4ba2-8653-a81ffcb3e394">
+          <AttributeID>Anio Produccion</AttributeID>
+          <Name>Anio Produccion</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="07365d9f-bf26-4d41-83f4-72649c08c1cc">
+          <AttributeID>Duracion</AttributeID>
+          <Name>Duracion</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e19256cd-c619-4024-b873-3f717afcda7d">
+          <AttributeID>Pais Origen</AttributeID>
+          <Name>Pais Origen</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e5958362-ff1f-4079-87fc-57d442c9df4d">
+          <AttributeID>Clasificacion Edad</AttributeID>
+          <Name>Clasificacion Edad</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="853af156-bcff-4394-980d-2d01110d3771">
+          <AttributeID>Formato Proyeccion</AttributeID>
+          <Name>Formato Proyeccion</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="d534e44b-b698-4e48-9a93-d4f413f00f2b">
+          <AttributeID>Nombre Director Principal</AttributeID>
+          <Name>Nombre Director Principal</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="26414c56-ee02-44c9-aa23-290a3526fe4e">
+          <AttributeID>Estado Seleccion</AttributeID>
+          <Name>Estado Seleccion</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="ceb35dc9-065b-43f7-a7b0-f74f5929e1bd">
+          <AttributeID>Generos</AttributeID>
+          <Name>Generos</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="aaf30dd9-e977-4493-95f1-07146cf58dbc">
+          <AttributeID>Idioma Original</AttributeID>
+          <Name>Idioma Original</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="6a5672e3-1fd4-43fd-b031-a6ea9e099b36">
+          <AttributeID>Tiene Subtitulos Espanol</AttributeID>
+          <Name>Tiene Subtitulos Espanol</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="278b5be3-b5a7-41b9-bb5f-30c93653c852">
+          <AttributeID>Tiene Subtitulos Ingles</AttributeID>
+          <Name>Tiene Subtitulos Ingles</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="59e05cd1-9a9b-44dc-b67b-896b03203b73">
+      <ID>Titulo</ID>
+      <Name>Titulo</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c9b315d9-8527-4325-a205-e0fd97f5464a">
+          <DataType>WChar</DataType>
+          <DataSize>200</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5890cec4-3c01-4128-a34b-d94644933356">
+            <TableID>dbo_DIM_Pelicula</TableID>
+            <ColumnID>titulo</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="47e78837-7438-47fb-bafc-f592c7f1179f">
+      <ID>Anio Produccion</ID>
+      <Name>Anio Produccion</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="10dbd1bf-53b0-40f0-9ca4-87845d6ae90f">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="04559eb4-9e45-4ab2-8640-accc00da2f3b">
+            <TableID>dbo_DIM_Pelicula</TableID>
+            <ColumnID>anio_produccion</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="c8fd0be2-8fc9-48ea-8d5f-878848bb13cc">
+      <ID>Duracion</ID>
+      <Name>Duracion</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="cda5d0a2-ad93-47bf-a3ae-b182c04e9063">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="90ba8a18-a472-4444-b52e-e24f41fc0d43">
+            <TableID>dbo_DIM_Pelicula</TableID>
+            <ColumnID>duracion</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="04f7e98f-b154-4a7e-b55f-e2025bb05b61">
+      <ID>Pais Origen</ID>
+      <Name>Pais Origen</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="724e2d93-1941-434f-863b-cd6fe1403f1b">
+          <DataType>WChar</DataType>
+          <DataSize>100</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4db3a976-d14e-4049-bba9-624caa3c187b">
+            <TableID>dbo_DIM_Pelicula</TableID>
+            <ColumnID>pais_origen</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="9c061781-6102-4f87-b7ba-8c11d607b3ba">
+      <ID>Clasificacion Edad</ID>
+      <Name>Clasificacion Edad</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="294dbea1-d1f8-4f15-9468-f85e5f083248">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e74eb77c-53b4-4134-abfc-833fbac4469c">
+            <TableID>dbo_DIM_Pelicula</TableID>
+            <ColumnID>clasificacion_edad</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="24d6948a-709e-4659-9ad5-69c4ae257109">
+      <ID>Formato Proyeccion</ID>
+      <Name>Formato Proyeccion</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a37c191b-6640-4ae5-a657-47a08c222bff">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2caa4fa2-46ce-40d4-809a-9a0740ce5495">
+            <TableID>dbo_DIM_Pelicula</TableID>
+            <ColumnID>formato_proyeccion</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="fcd80142-85db-400c-be43-e6f0186dbe4f">
+      <ID>Nombre Director Principal</ID>
+      <Name>Nombre Director Principal</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="edf5c868-0cf2-4a10-812f-9c557c78cb92">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9065e960-10d1-41e5-b017-e5c8085b0c28">
+            <TableID>dbo_DIM_Pelicula</TableID>
+            <ColumnID>nombre_director_principal</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="4ec80aba-c984-40d1-a143-1b483a76d316">
+      <ID>Estado Seleccion</ID>
+      <Name>Estado Seleccion</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="bc90c0ca-baea-405c-a745-a6040b212005">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="75dac719-932b-40bf-adce-3ba7e0200402">
+            <TableID>dbo_DIM_Pelicula</TableID>
+            <ColumnID>estado_seleccion</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3e799c9e-6667-4c65-a161-c34ef767336f">
+      <ID>Generos</ID>
+      <Name>Generos</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ecf0760f-22e2-46bd-82bf-530f6968515e">
+          <DataType>WChar</DataType>
+          <DataSize>500</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2e912b96-8aea-4c13-a917-c9cc64d57233">
+            <TableID>dbo_DIM_Pelicula</TableID>
+            <ColumnID>generos</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="09efcbd7-c529-4081-af19-e0db2aebcf41">
+      <ID>Idioma Original</ID>
+      <Name>Idioma Original</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="eaecc75e-6fa6-4037-b22c-4ccebb5d5a6d">
+          <DataType>WChar</DataType>
+          <DataSize>100</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1c5da5cd-037d-4a35-b39e-081f95977a5a">
+            <TableID>dbo_DIM_Pelicula</TableID>
+            <ColumnID>idioma_original</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="af79a388-f0fa-4249-b9b3-86665fd90857">
+      <ID>Tiene Subtitulos Espanol</ID>
+      <Name>Tiene Subtitulos Espanol</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="dd3873da-1b6c-4f33-9f06-9fd57430f428">
+          <DataType>Boolean</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4e8e293e-c271-4454-9ccc-e5966b90c66c">
+            <TableID>dbo_DIM_Pelicula</TableID>
+            <ColumnID>tiene_subtitulos_espanol</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="878052ca-e274-46d9-b87c-0d3a75bf0443">
+      <ID>Tiene Subtitulos Ingles</ID>
+      <Name>Tiene Subtitulos Ingles</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="9e33265f-afa5-4700-9253-7fcd93737c19">
+          <DataType>Boolean</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ffdbb1b0-9e67-4b4e-8e6e-e6ca3d4f8668">
+            <TableID>dbo_DIM_Pelicula</TableID>
+            <ColumnID>tiene_subtitulos_ingles</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>
