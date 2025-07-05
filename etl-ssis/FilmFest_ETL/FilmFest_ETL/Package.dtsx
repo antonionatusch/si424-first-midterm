@@ -12,11 +12,46 @@
   DTS:ObjectName="Package"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="65"
-  DTS:VersionGUID="{84B0A76C-2281-45E5-B8BE-2E36CF82B33F}">
+  DTS:VersionBuild="75"
+  DTS:VersionGUID="{9E2C711F-0F0B-4AFD-A96A-BF1C39215BA7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ANTONIO.Festival_Final_OLAP]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{B7185793-EC53-443C-9CBE-5250DC641249}"
+      DTS:ObjectName="ANTONIO.Festival_Final_OLAP">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Data Source=ANTONIO;User ID=olapear;Initial Catalog=Festival_Final_OLAP;Provider=SQLOLEDB.1;Persist Security Info=True;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="eJdAhwLDKMQ="
+            IV="cQ3fej3vlCg3pVHLFGTx7g==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+            <CipherData>
+              <CipherValue>cQ3fej3vlCg3pVHLFGTx7kYTV2C0J3nmDATfiZT3sa6lwuImT7+oditWffgPeYP07Jg5q9Z8gbeiLE5rpAK60K38722h0AVhX7C7bWHVN+n5Wy8QLrzjZz8/0BkU8D6VpfQn2nnYgCIqiCZ8uEXUYDMS3BkIiuAuC2a5wTLkKeeRxwG5TV2RytZi2K/Xdgj3</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{04A7BE38-6B86-4A6D-8576-7DD72EE959D6}"
+      DTS:ObjectName="localhost">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Data Source=localhost;PROVIDER=MSOLAP;Impersonation Level=Impersonate;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost.Festival_Final_OLAP]"
       DTS:CreationName="OLEDB"
@@ -41,12 +76,12 @@
           DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=Festival_Final_OLAP;Provider=SQLOLEDB.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{8F38B044-424D-47E8-BBA4-84E16A0807E0}localhost.Festival_Final_OLAP.sa;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="DigoWk9foJU="
-            IV="EP0SM1YRDkpQynpC3lL5nA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="S/G5OCOZsRc="
+            IV="KDvTWuEdsjb9HYk4UtBg/w==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>EP0SM1YRDkpQynpC3lL5nFftUziT2ea5q2YUuekOWlT8BIXqDdHiHVY6pigFoYglVJV6RY+de+OtEAxZKd5+HZaTvJczsoUd6LrnHujdSV0u0mn6jBcBkZkXwMuaGixpv1E/D1uacKR7QZMQXY/vKFYN4Xk7N32hua/Dmi+lsh0BJDH9BGTLo33TPsEr5dN5</CipherValue>
+              <CipherValue>KDvTWuEdsjb9HYk4UtBg/747318+8s+LJHd2AKf8vaOISg9Xv5WR93vYtTL9zHTYjHBn0gW51jpFQ2cOIf44mx09i1TcYgwaoDnDxf2+QDatcGmKA7w18Oik9feMVZl4vDrrThmQogQoMGULAyWYLCJ1LvBSxR3cmSIe4pbUoIb0lWHuriu+ac10QVxNht4q</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -64,12 +99,12 @@
           DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=Festival_Final_OLAP;Provider=SQLOLEDB.1;Persist Security Info=True;Application Name=SSIS-Package-{C6C80FF6-698D-459F-8226-75A284B1FCA7}localhost.Festival_Final_OLAP.sa 1;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="Mh072Jpgquk="
-            IV="MkxuuIkYQaG+ZSbn10eXxA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="sAcTzWbBUTE="
+            IV="TEUn74O1LuZI3vPzD4clRQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>MkxuuIkYQaG+ZSbn10eXxGokYNMSc69wNsQQ0+bT+hkj+cDvjcpFQyFDFzSn4qfbOV6EZxMvRKMVvheRx1x2bG6pbXcsk3kkCGX4LXaViNoWl4WXBIaK7MQFqHsjoL07C1TBwMPpVckDM+VBk1MrYnnPSAv1DqD6USh0fy4jNEoTFQdcGoLtvKnQUWP13pyv</CipherValue>
+              <CipherValue>TEUn74O1LuZI3vPzD4clRUoc1uX4ef+/6/X5V9HP9af3eBSNU6Q78HLQPAIvUeiB8pIknKIUepSKfcUHMNwfAjVTi9IURlb2KUW9thtXbgCLsktN8C9UOLhHWwcdfngmW0wSxl6NuWhMoAjBOkMuXVl9x1YHY294nBJSmDT8uf/dCc0gXBXxOPNOjHFDQ2Hb</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -87,15 +122,63 @@
           DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=Festival_Final_OLTP;Provider=SQLOLEDB.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{B2FB9798-0E73-4877-B205-CD5396EE71E7}localhost.Festival_Final_OLTP.sa;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="ciIiQj2V8rM="
-            IV="Gz4slU9QwvnWVY2UbO9VzQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="ECy7aPwwICQ="
+            IV="xQEInoNmNyER6qEOY+3Nyg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>Gz4slU9QwvnWVY2UbO9VzczNenI3lIFHvupPC4zGltoG4aaou+Jkp2uf209rYxcO7qeEIhfzmdxPipYVnny6symcb77ULhIdShoHkZ1kJcBzKDqJNewGunsvX5E6SCo/EQuQhHXuHN6QckVenwDWiebB7nlGPsKulGkg/ZeSxYLThqV4rKD0PO/My69oNlCr</CipherValue>
+              <CipherValue>xQEInoNmNyER6qEOY+3NyjSPIEvD2Sq72ZWclYDHrvTtqD/JV2bKWGF6cHa+CgtT8Vf5tJr7pILxVyrUWP1uvihrtLzkxKq9ZutLtL9n/RtEaUWfHMLwv1InAxmlH9JysXheUL8Ht/x3SJ5AV2mVezAHdsl5ZZNalStyTtaPfzLo9wUIfUJZ7/aiLl5N5Q4G</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.FilmFest_CUBE]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{9B53ED2D-B976-4714-845A-07CF56343CDD}"
+      DTS:ObjectName="localhost.FilmFest_CUBE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=FilmFest_CUBE;Provider=MSOLAP.8;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.FilmFest_CUBE 1]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{1C31D177-5963-4B99-8914-26C3282B5498}"
+      DTS:ObjectName="localhost.FilmFest_CUBE 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=FilmFest_CUBE;Provider=MSOLAP.8;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.FilmFest_CUBE 2]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{7F80B071-E7B7-4A20-90E8-963229C61462}"
+      DTS:ObjectName="localhost.FilmFest_CUBE 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=FilmFest_CUBE;Provider=MSOLAP.8;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.FilmFest_CUBE 3]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{D9D7A81A-EC21-454E-8AE5-56D8E2DF81E5}"
+      DTS:ObjectName="localhost.FilmFest_CUBE 3">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=FilmFest_CUBE;Provider=MSOLAP.8;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -156,6 +239,22 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Process OLAP Cube"
+      DTS:CreationName="Microsoft.DTSProcessingTask"
+      DTS:Description="This task allows the multidimensional cube to be updated often."
+      DTS:DTSID="{18AFDF2B-77F8-44A0-91B0-200BC1ECB7CC}"
+      DTS:ExecutableType="Microsoft.DTSProcessingTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Process OLAP Cube"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ASProcessingData
+          ConnectionName="localhost.FilmFest_CUBE 3"
+          ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot; xmlns:ddl500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500&quot; xmlns:ddl500_500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500/500&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;FilmFest_CUBE&lt;/DatabaseID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot; xmlns:ddl500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500&quot; xmlns:ddl500_500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500/500&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;FilmFest_CUBE&lt;/DatabaseID&gt;&#xA;      &lt;CubeID&gt;Festival Final OLAP&lt;/CubeID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;&lt;/Batch&gt;" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Sequence Container"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
@@ -197,6 +296,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{32EF7001-9124-4C43-B0B9-F2AED0254A53}"
+              SQLTask:IsStoredProc="True"
               SQLTask:BypassPrepare="False"
               SQLTask:SqlStatementSource="dbo.usp_LoadFacts" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
@@ -265,6 +365,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
       DTS:To="Package\Sequence Container" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{8D0BAFC7-C46E-4743-B1D0-33453115EF2E}"
+      DTS:From="Package\Enable FKs"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Process OLAP Cube" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -278,6 +386,18 @@
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Clean DIM Tables"
+          TopLeft="155,85" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Disable FK Restrictions"
+          TopLeft="516,4" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Enable FKs"
+          TopLeft="547,582" />
         <NodeLayout
           Size="159,42"
           Id="Package\Sequence Container\Load Dimensions"
@@ -328,55 +448,9 @@
           Id="Package\Sequence Container"
           TopLeft="338.5,194.5" />
         <NodeLayout
-          Size="186,42"
-          Id="Package\Disable FK Restrictions"
-          TopLeft="516,4" />
-        <NodeLayout
           Size="155,42"
           Id="Package\Truncate FACT Tables"
           TopLeft="548.5,117.5" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Enable FKs"
-          TopLeft="547,582" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="564,539.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="48,42.5000000000001"
-              Start="0,0"
-              End="48,35.0000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.2500000000001" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.2500000000001"
-                    Point2="0,21.2500000000001"
-                    Point3="4,21.2500000000001" />
-                  <mssgle:LineSegment
-                    End="44,21.2500000000001" />
-                  <mssgle:CubicBezierSegment
-                    Point1="44,21.2500000000001"
-                    Point2="48,21.2500000000001"
-                    Point3="48,25.2500000000001" />
-                  <mssgle:LineSegment
-                    End="48,35.0000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="162,42"
-          Id="Package\Clean DIM Tables"
-          TopLeft="155,85" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="609,46">
@@ -446,6 +520,40 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="564,539.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="48,42.5000000000001"
+              Start="0,0"
+              End="48,35.0000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.2500000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.2500000000001"
+                    Point2="0,21.2500000000001"
+                    Point3="4,21.2500000000001" />
+                  <mssgle:LineSegment
+                    End="44,21.2500000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="44,21.2500000000001"
+                    Point2="48,21.2500000000001"
+                    Point3="48,25.2500000000001" />
+                  <mssgle:LineSegment
+                    End="48,35.0000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="236,127">
           <EdgeLayout.Curve>
@@ -479,8 +587,58 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Process OLAP Cube"
+          TopLeft="532.222222222222,668.888888888889" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="614.611111111111,624">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.8888888888889"
+              Start="0,0"
+              End="0,37.3888888888889">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.3888888888889" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[localhost]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[localhost.FilmFest_CUBE]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[ANTONIO.Festival_Final_OLAP]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[localhost.FilmFest_CUBE 2]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[localhost.FilmFest_CUBE 1]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[localhost.FilmFest_CUBE 3]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
